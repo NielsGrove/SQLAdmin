@@ -29,12 +29,16 @@
   <ItemGroup>
     <Compile Include="Collector.SQLAdmin.psd1" />
     <Compile Include="Computer.Collector.SQLAdmin.psm1" />
+    <Compile Include="Computer.Collector.tests.ps1" />
     <Compile Include="Config.SQLAdmin.ps1" />
     <Compile Include="Core.Collector.SQLAdmin.psm1" />
     <Compile Include="Core.Collector.tests.ps1" />
     <Compile Include="Import.Collector.SQLAdmin.psm1" />
     <Compile Include="Import.Collector.tests.ps1" />
+    <Compile Include="SSAS.Collector.SQLAdmin.psm1" />
+    <Compile Include="SSAS.Collector.tests.ps1" />
     <Compile Include="SSDB.Collector.SQLAdmin.psm1" />
+    <Compile Include="SSDB.Collector.tests.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets" Condition="Exists('$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets')" />

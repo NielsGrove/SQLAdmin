@@ -1,0 +1,83 @@
+﻿/*
+DESCRIPTION
+Style Sheet for SqlAnchor
+
+Filename : SqlAnchor.css
+
+HISTORY
+2012-09-13 (Niels Grove-Rasmussen) CSS-file created.
+2014-10-24 (Niels Grove-Rasmussen) a-styles added.
+2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub
+*/
+
+
+body {
+    color: yellow;
+    background-color: darkblue;
+}
+
+p {
+    font-family: Sans-Serif;
+    font-size: small;
+}
+
+    p.copyright {
+        font-size: smaller;
+    }
+
+h1, h2, h3 {
+    font-family: Sans-Serif;
+}
+
+button {
+    background-color: blue;
+}
+
+a:link {
+    color: yellow;
+}
+
+a:hover {
+    color: orange;
+}
+
+a:visited {
+    color: yellow;
+}
+
+table {
+    font-family: Sans-Serif;
+    font-size: small;
+    border: thin blue solid;
+    border-collapse: collapse;
+}
+
+thead {
+    border: blue solid;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+td {
+    border: thin blue solid;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+    td.warning {
+        background-color: orange;
+    }
+
+    td.alert {
+        background-color: red;
+    }
+
+    td.empty {
+        background-color: grey;
+    }
+
+    td.support_out {
+        background-color: red;
+    }

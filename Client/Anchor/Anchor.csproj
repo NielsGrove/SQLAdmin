@@ -66,13 +66,13 @@
     <Content Include="Scripts\SqlAnchor.SSIS.js" />
     <Content Include="SqlAnchor.config.js" />
     <Content Include="SQLAnchor.hta" />
+    <Content Include="Themes\SqlAnchor.css" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="Themes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SqlAnchor.Launch.ps1" />

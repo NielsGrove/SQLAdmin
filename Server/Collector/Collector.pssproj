@@ -28,6 +28,7 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="Collector.SQLAdmin.psd1" />
+    <Compile Include="Config.SQLAdmin.ps1" />
     <Compile Include="Core.Collector.SQLAdmin.psm1" />
     <Compile Include="Core.Collector.tests.ps1" />
     <Compile Include="Import.Collector.SQLAdmin.psm1" />

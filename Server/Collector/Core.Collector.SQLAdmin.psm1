@@ -53,8 +53,8 @@ Process {
   "Flag indicating if this script file has been invoked. Used by SqlAdmin.Config.ps1." | Write-Verbose
   [bool]$script:SqlAdminCore = $true
 
-  "dot-source inclusion of SQLAdmin configuration." | Write-Verbose
-  . "$script:ScriptPath\SqlAdmin.Config.ps1"
+  'dot-source inclusion of SQLAdmin configuration.' | Write-Verbose
+  . "$script:ScriptPath\Config.SQLAdmin.ps1"
 
   [string]$script:CnnStrSqlAdmin = "Server=$SqlAdminSsdb;Integrated Security=SSPI;Database=$SqladminDb;Application Name=SqlAdmin"
   "SQLAdmin connection string: $CnnStrSqlAdmin" | Write-Debug

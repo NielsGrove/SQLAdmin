@@ -35,6 +35,8 @@
     <Compile Include="Core.Collector.tests.ps1" />
     <Compile Include="Import.Collector.SQLAdmin.psm1" />
     <Compile Include="Import.Collector.tests.ps1" />
+    <Compile Include="MDS.Collector.SQLAdmin.psm1" />
+    <Compile Include="MDS.Collector.tests.ps1" />
     <Compile Include="SSAS.Collector.SQLAdmin.psm1" />
     <Compile Include="SSAS.Collector.tests.ps1" />
     <Compile Include="SSDB.Collector.SQLAdmin.psm1" />

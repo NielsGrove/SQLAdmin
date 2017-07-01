@@ -43,6 +43,8 @@
     <Compile Include="SSDB.Collector.tests.ps1" />
     <Compile Include="SSIS.Collector.SQLAdmin.psm1" />
     <Compile Include="SSIS.Collector.tests.ps1" />
+    <Compile Include="SSRS.Collector.SQLAdmin.psm1" />
+    <Compile Include="SSRS.Collector.tests.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets" Condition="Exists('$(MSBuildExtensionsPath)\PowerShell Tools for Visual Studio\PowerShellTools.targets')" />

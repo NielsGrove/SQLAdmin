@@ -55,7 +55,16 @@
     <TypeScriptSourceRoot />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="app.css" />
+    <Content Include="Scripts\SqlAdmin.SSRS.js" />
+    <Content Include="Scripts\SqlAnchor.Computer.js" />
+    <Content Include="Scripts\SqlAnchor.Core.js" />
+    <Content Include="Scripts\SqlAnchor.MDS.js" />
+    <Content Include="Scripts\SqlAnchor.MSSQL.js" />
+    <Content Include="Scripts\SqlAnchor.Organisation.js" />
+    <Content Include="Scripts\SqlAnchor.SSAS.js" />
+    <Content Include="Scripts\SqlAnchor.SSDB.js" />
+    <Content Include="Scripts\SqlAnchor.SSIS.js" />
+    <Content Include="SqlAnchor.config.js" />
     <Content Include="SQLAnchor.hta" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="Themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlAnchor.Launch.ps1" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

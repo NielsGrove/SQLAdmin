@@ -15,13 +15,11 @@ HISTORY
 SQL Server version
 */
 
+/**
+ * @description Show all SQL Server versions.
+ * ???  (NGR) Function created.
+ */
 function SsdbVersionsShow() {
-    /*
-    DESCRITION
-    Show all SQL Server versions.
-    HISTORY
-    ???  (NGR) Function created.
-    */
     document.title = 'SqlAnchor > SQL versions';
 
     var markup = '<h1>SQL Server version</h1>' +
@@ -79,13 +77,13 @@ function SsdbVersionsShow() {
     MainArea.innerHTML = markup;
 }  // SsdbVersionsShow()
 
+/**
+ * @description Show details on a given SQL Server version number.
+ * ???  (NGR) Function created.
+ *
+ * @param {String} VersionNumber
+ */
 function openSsdbVersionDetails(VersionNumber) {
-    /*
-    DESCRIPTION
-    Show details on a given SQL Server version number.
-    HISTORY
-    ???  (NGR) Function created.
-    */
     document.title = 'SqlAnchor > SQL Server version > ' + VersionNumber;
 
     var markup = '<h1>SQL Server version &bdquo;' + VersionNumber + '&ldquo;</h1>';
@@ -171,15 +169,15 @@ function openSsdbVersionDetails(VersionNumber) {
     MainArea.innerHTML = markup;
 }  // openSsdbVersionDetails()
 
+/**
+ * @description Show details on a version major number.
+ * ???  (NGR) Function created.
+ * 2014-11-06 (NGR) Function renamed from "openSsdbVersionMajorDetails" to "MssqlVersionMajorDetailsShow".
+ * 2014-11-10 (NGR) Function changed to execution of the stored procedure "mssql_version_major_detail-get".
+ *
+ * @param {any} VersionMajorNumber
+ */
 function MssqlVersionMajorDetailsShow(VersionMajorNumber) {
-    /*
-    DESCRIPTION
-    Show details on a version major number.
-    HISTORY
-    ???  (NGR) Function created.
-    2014-11-06 (NGR) Function renamed from "openSsdbVersionMajorDetails" to "MssqlVersionMajorDetailsShow".
-    2014-11-10 (NGR) Function changed to execution of the stored procedure "mssql_version_major_detail-get".
-    */
     document.title = 'SqlAnchor > SQL Server major version > ' + VersionMajorNumber;
 
     var markup = '<h1>SQL Server major version &bdquo;' + VersionMajorNumber + '&ldquo;</h1>' +
@@ -241,13 +239,11 @@ function MssqlVersionMajorDetailsShow(VersionMajorNumber) {
     MainArea.innerHTML = markup;
 }  // openSsdbVersionMajorDetails()
 
+/**
+ * @description Show list of versions out of support.
+ * ???  (NGR) Function created.
+ */
 function openSsdbVersionOutOfSupport() {
-    /*
-    DESCRIPTION
-    Show list of versions out of support.
-    HISTORY
-    ???  (NGR) Function created.
-    */
     document.title = 'SqlAnchor > SQL Server versions > Out Of Support';
 
     var markup = '<h1>SQL Server versions Out Of Support</h1>' +
@@ -290,7 +286,10 @@ function openSsdbVersionOutOfSupport() {
     MainArea.innerHTML = markup;
 }  // openSsdbVersionOutOfSupport()
 
-
+/**
+ * @description HTML code for bottun to version details
+ * @param {String} VersionNumber
+ */
 function buttonSsdbVersionDetails(VersionNumber) {
     var tag = '<input type="button" value="&raquo;" ' +
         'onclick="openSsdbVersionDetails(\'' + VersionNumber + '\');" ' +
@@ -299,13 +298,13 @@ function buttonSsdbVersionDetails(VersionNumber) {
     return tag;
 }
 
+/**
+ * @description
+ * 2014-10-31 (NGR) Function created.
+ *
+ * @param {any} VersionNumber
+ */
 function linkMssqlVersionDetails(VersionNumber) {
-    /*
-    DESCRIPTION
-  
-    HISTORY
-    2014-10-31 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"openSsdbVersionDetails('" + VersionNumber + "');return false;\"" +
         'title="Show details for the SQL&nbsp;Server version&nbsp;&bdquo;' + VersionNumber + '&ldquo;.">' +
@@ -335,15 +334,13 @@ function buttonSsdbVersionOutOfSupport() {
 SQL Server edition
 */
 
+/**
+ * @description Show all SQL Server editions.
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from file "SqlAnchor.hta" to file "SqlAnchor.MSSQL.js".
+ *                  Function renamed fram "SsdbEditionsShow()" to "MssqlEditionsShow()".
+ */
 function MssqlEditionsShow() {
-    /*
-    DESCRIPTION
-    Show all SQL Server editions.
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-31 (NGR) Function moved from file "SqlAnchor.hta" to file "SqlAnchor.MSSQL.js".
-                     Function renamed fram "SsdbEditionsShow()" to "MssqlEditionsShow()".
-    */
     document.title = 'SqlAnchor > SQL Server editions';
 
     var markup = '<h1>SQL Server Editiopn</h1>' +
@@ -373,13 +370,15 @@ function MssqlEditionsShow() {
     MainArea.innerHTML = markup;
 }  // MssqlEditionsShow()
 
+/**
+ * @description
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from "SqlAnchor.DetailPages.js" to "SqlAnchor.MSSQL.js"
+ *                  Function renamed from "openSsdbEditionDetails()" to "MssqlEditionDetailsShow()".
+ *
+ * @param {any} EditionName
+ */
 function MssqlEditionDetailsShow(EditionName) {
-    /*
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-31 (NGR) Function moved from "SqlAnchor.DetailPages.js" to "SqlAnchor.MSSQL.js"
-                     Function renamed from "openSsdbEditionDetails()" to "MssqlEditionDetailsShow()".
-    */
     document.title = 'SqlAnchor > SQL Server edition > ' + EditionName;
 
     var markup = '<h2>SQL Server edition &bdquo;' + EditionName + '&ldquo;</h2>' +
@@ -411,13 +410,14 @@ function MssqlEditionDetailsShow(EditionName) {
     MainArea.innerHTML = markup;
 }  // MssqlEditionDetailsShow()
 
-
+/**
+ * @description
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function renamed from "buttonSsdbEditionDetails()" to "buttonMssqlEditionDetails()".
+ *
+ * @param {any} EditionName
+ */
 function buttonMssqlEditionDetails(EditionName) {
-    /*
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-31 (NGR) Function renamed from "buttonSsdbEditionDetails()" to "buttonMssqlEditionDetails()".
-    */
     var tag = '<input type="button" value="&raquo;" ' +
         'onclick="MssqlEditionDetailsShow(\'' + EditionName + '\');" ' +
         'title="Show details for the SQL Server edition &bdquo;' + EditionName + '&ldquo;." ' +
@@ -425,11 +425,13 @@ function buttonMssqlEditionDetails(EditionName) {
     return tag;
 }
 
+/**
+ * @description
+ * 2014-10-31 (NGR) Function created.
+ *
+ * @param {any} EditionName
+ */
 function linkMssqlEditionDetails(EditionName) {
-    /*
-    HISTORY
-    2014-10-31 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"MssqlEditionDetailsShow('" + EditionName + "');return false;\"" +
         'title="Show details for the SQL&nbsp;Server edition&nbsp;&bdquo;' + EditionName + '&ldquo;.">' +
@@ -443,12 +445,12 @@ function linkMssqlEditionDetails(EditionName) {
 SQL Server collation
 */
 
+/**
+ * @description
+ * ???  (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from "SqlAnchor.hta" to "SqlAnchor.MSSQL.js".
+ */
 function CollationssShow() {
-    /*
-    HISTORY
-    ???  (NGR) Function created.
-    2014-10-31 (NGR) Function moved from "SqlAnchor.hta" to "SqlAnchor.MSSQL.js".
-    */
     document.title = 'SqlAnchor > Collations';
 
     var markup = '<table><thead><td>Collation name</td><td>Instance count</td><td>Database count</td></thead>';
@@ -473,14 +475,14 @@ function CollationssShow() {
     MainArea.innerHTML = markup;
 }  // CollationssShow()
 
+/**
+ * @description Show details on a SQL Server collation.
+ * ???        (NGR) Function created.
+ * 2014-11-03 (NGR) Function moved from "SqlAnchor.DetailsPages.js" to "SqlAnchor.MSSSQL.js".
+ *
+ * @param {String} CollationName
+ */
 function openCollationDetails(CollationName) {
-    /*
-    DESCRIPTION
-    Show details on a SQL Server collation.
-    HISTORY
-    ???        (NGR) Function created
-    2014-11-03 (NGR) Function moved from "SqlAnchor.DetailsPages.js" to "SqlAnchor.MSSSQL.js"
-    */
     document.title = 'SqlAnchor > Collation > ' + CollationName;
 
     var markup = '<h2>Collation &bdquo;' + CollationName + '&ldquo;</h2>';
@@ -555,13 +557,14 @@ function openCollationDetails(CollationName) {
     MainArea.innerHTML = markup;
 }  // openCollationDetails()
 
-
+/**
+ * @description
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from "SqlAnchor.Core.js" to "SqlAnchor.MSSQL.js".
+ *
+ * @param {String} CollationName
+ */
 function buttonCollationDetails(CollationName) {
-    /*
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-31 (NGR) Function moved from "SqlAnchor.Core.js" to "SqlAnchor.MSSQL.js".
-    */
     var tag = '<input type="button" value="&raquo;" ' +
         'onclick="openCollationDetails(\'' + CollationName + '\');" ' +
         'title="Show details for the collation &bdquo;' + CollationName + '&ldquo;." ' +
@@ -569,13 +572,13 @@ function buttonCollationDetails(CollationName) {
     return tag;
 }
 
+/**
+ * @description Create HTML link for Collation Details.
+ * 2014-11-13 (NGR) Function created.
+ *
+ * @param {String} CollationName
+ */
 function linkCollationDetails(CollationName) {
-    /*
-    DESCRIPTION
-    Create HTML link for Collation Details.
-    HISTORY
-    2014-11-13 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"openCollationDetails('" + CollationName + "');return false;\"" +
         'title="Show the SQL&nbsp;Server Collation&nbsp;&bdquo;' + CollationName + '&ldquo;.">' +
@@ -588,15 +591,15 @@ function linkCollationDetails(CollationName) {
 SQL Server compability level
 */
 
+/**
+ * @description Show details on a SQL Server compability levels and a list of installations that has the compability level.
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from "SqlAnchor.hta" to "SqlAnchor.MSSQL.js".
+ *                  Function renamed from "openDbCompabilityLevel()" to "MssqlCompabilityLevelShow()".
+ *
+ * @param {String} DbCompabilityLevel
+ */
 function MssqlCompabilityLevelShow(DbCompabilityLevel) {
-    /*
-    DESCRIPTION
-    Show details on a SQL Server compability levels and a list of installations that has the compability level.
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-31 (NGR) Function moved from "SqlAnchor.hta" to "SqlAnchor.MSSQL.js".
-                     Function renamed from "openDbCompabilityLevel()" to "MssqlCompabilityLevelShow()".
-    */
     document.title = 'SqlAnchor > Databases > Compability Level > ' + DbCompabilityLevel;
 
     var markup = '<h1>SQL Server Compability Level &bdquo;' + DbCompabilityLevel + '&ldquo;</h1>' +
@@ -628,13 +631,14 @@ function MssqlCompabilityLevelShow(DbCompabilityLevel) {
     MainArea.innerHTML = markup;
 }  // MssqlCompabilityLevelShow()
 
-
+/**
+ * @description
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from ""SqlAnchor.Core.js" to "SqlAnchor.MSSQL.js".
+ *
+ * @param {String} DbCompabilityLevel
+ */
 function buttonDbCompabilityLevel(DbCompabilityLevel) {
-    /*
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-31 (NGR) Function moved from ""SqlAnchor.Core.js" to "SqlAnchor.MSSQL.js".
-    */
     var tag = '<input type="button" value="&raquo;" ' +
         'onclick="openDbCompabilityLevel(\'' + DbCompabilityLevel + '\');" ' +
         'title="Show details for the database compability level &bdquo;' + DbCompabilityLevel + '&ldquo;." ' +
@@ -642,11 +646,13 @@ function buttonDbCompabilityLevel(DbCompabilityLevel) {
     return tag;
 }
 
+/**
+ * @description
+ * 2014-10-31 (NGR) Function created.
+ *
+ * @param {any} CompabilityLevel
+ */
 function linkMssqlCompabilityLevel(CompabilityLevel) {
-    /*
-    HISTORY
-    2014-10-31 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"MssqlCompabilityLevelShow('" + CompabilityLevel + "');return false;\"" +
         'title="Show the SQL&nbsp;Server Compability&nbspLevel&nbsp;;&bdquo;' + CompabilityLevel + '&ldquo;.">' +

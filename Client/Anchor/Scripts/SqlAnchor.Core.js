@@ -7,6 +7,8 @@ Filename : SqlAnchor.Core.js
 HISTORY
 ???        (Niels Grove-Rasmussen) File created.
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
+2017-08-11 (Niels Grove-Rasmussen) JSDdoc added to each function with description element at least (https://msdn.microsoft.com/en-us/library/mt162307.aspx).
+                                   JSDoc used instead of webdoc to support Microsoft Visual Studio (2017) IntelliSense (https://docs.microsoft.com/en-us/visualstudio/ide/javascript-intellisense).
 */
 
 
@@ -14,10 +16,13 @@ HISTORY
 //*** Main pages
 //***
 
+/**
+ * @description Show Active Directory (AD) Domain Controllers (DCs) on seperate page.
+ */
 function DcsShow() {
     document.title = 'SqlAnchor > Domain Controllers';
 
-    var DomainControllers = new Array('DNADM07.dn.lan', 'DNADM08.dn.lan', 'AD01.prod.dn.ext', 'AD01.pre.dn.ext', 'AD01.test.dn.ext', 'AD01.udv.dn.ext');
+    var DomainControllers = new Array('DC042.sqladmin.lan', 'DC666.sqladmin.lan', 'DC123.sqladmin.extra', 'DC987.sqladmin.extra');
 
     var markup = '<h2>Domain Controllers</h2>' +
         '<table><thead><td>Computer name</td></thead>';
@@ -29,6 +34,9 @@ function DcsShow() {
     MainArea.innerHTML = markup;
 }  // DcsShow()
 
+/**
+ * @description Show links to internal tools with web interface.
+ */
 function ToolsShow() {
     document.title = 'SqlAnchor > Tools';
 
@@ -43,6 +51,9 @@ function ToolsShow() {
     MainArea.innerHTML = markup;
 }  // ToolsShow()
 
+/**
+ * @description Show SSQLAnchor help page.
+ */
 function HelpShow() {
     document.title = 'SqlAnchor > Help';
 
@@ -60,9 +71,9 @@ function HelpShow() {
         '<p>The Source Code of SqlAnchor is placed in the Codeplex project <a href="http://sqladmin.codeplex.com/" title="Codeplex &gt; SQLAdmin">SQLAdmin</a>.</p>' +
         '<h2>About</h2>' +
         '<p>Please contact <a href="http://dk.linkedin.com/in/nielsgrove" title="LinkedIn &gt; Niels Grove-Rasmussen">Niels&nbsp;Grove&ndash;Rasmussen</a>.</p>';
-	/*markup += '<h2>AD info</h2>';
-   markup += '<p>: ' + objUser.Info + '</p>';
-	 markup += '<p>Description: ' + objUser.Description + '</p>';*/
+   /*markup += '<h2>AD info</h2>';
+     markup += '<p>: ' + objUser.Info + '</p>';
+     markup += '<p>Description: ' + objUser.Description + '</p>';*/
     objUser = null;
 
     MainArea.innerHTML = markup;
@@ -73,8 +84,14 @@ function HelpShow() {
 ** HTML buttons
 */
 
+/**
+ * @description Generate HTML code for button to call SQLCMD tool.
+ * @param {String} ComputerName - Computer name, complete (FQDN).
+ * @param {String} SqlDbInstanceName - SQL Server Database Engine name.
+ * @returns {String} HTML code for SQLCMD button.
+ */
 function buttonSqlCmd(ComputerName, SqlDbInstanceName) {
-    return '';  // Under Construction!
+  return '';  // Under Construction!
 
     var tag = '<input type="button" value="SQLCMD" ' +
         'onclick="openSqlCmd( \'' + ComputerName + '\', \'' + SqlDbInstanceName + '\');" ' +
@@ -83,6 +100,11 @@ function buttonSqlCmd(ComputerName, SqlDbInstanceName) {
     return tag;
 }
 
+/**
+ * @description Generate HTML code for button to start SQL Server Management Studio.
+ * @param {String} SsdbName
+ * @param {String} ComputerName
+ */
 function buttonManagementStudio(SsdbName, ComputerName) {
     return '';  // No path for SqlWb.exe in environment when SQL2008R2 is installed
 
@@ -98,6 +120,10 @@ function buttonManagementStudio(SsdbName, ComputerName) {
 ** Open external applications
 */
 
+/**
+ * @description Start Remote Desktop session to given computer.
+ * @param {String} ComputerName
+ */
 function openRemoteDesktop(ComputerName) {
     var WshShell = new ActiveXObject("WScript.Shell");
     var CmdStr = "mstsc.exe /v:" + ComputerName;
@@ -109,6 +135,10 @@ function openRemoteDesktop(ComputerName) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description Start Administrator Remote Desktop session to given computer.
+ * @param {String} ComputerName
+ */
 function openAdminRemoteDesktop(ComputerName) {
     var WshShell = new ActiveXObject("WScript.Shell");
     var CmdStr = "mstsc.exe -admin /v:" + ComputerName;
@@ -120,7 +150,10 @@ function openAdminRemoteDesktop(ComputerName) {
     finally { WshShell = null; }
 }
 
-
+/**
+ * @description Start MMC Computer Management session to given computer.
+ * @param {any} ComputerName
+ */
 function openComputerManagement(ComputerName) {
     var WshShell = new ActiveXObject("WScript.Shell");
     var WshSysEnv = WshShell.Environment("Process")
@@ -133,6 +166,11 @@ function openComputerManagement(ComputerName) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description Start SQLCMD on given SQL Server Database Engine instance.
+ * @param {String} ComputerName
+ * @param {String} SqlDbInstanceName
+ */
 function openSqlCmd(ComputerName, SqlDbInstanceName) {
     alert('Under Construction...');
     return null;
@@ -150,6 +188,11 @@ function openSqlCmd(ComputerName, SqlDbInstanceName) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description Start SQL Server Management Studio on given SQL Server Database Engine instance.
+ * @param {String} SqlInstanceName
+ * @param {String} ComputerName
+ */
 function openManagementStudio(SqlInstanceName, ComputerName) {
     var WshShell = new ActiveXObject("WScript.Shell");
     var CmdStr = "SqlWb.exe -S " + ComputerName + "\\" + SqlInstanceName + " -E";
@@ -161,6 +204,11 @@ function openManagementStudio(SqlInstanceName, ComputerName) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description 
+ * @param {String} WindowsServerName
+ * @param {String} ShareName
+ */
 function openShare(WindowsServerName, ShareName) {
     var WshShell = new ActiveXObject("WScript.Shell");
     var CmdStr = "explorer.exe /root,\\\\" + WindowsServerName + "\\" + ShareName;
@@ -172,6 +220,10 @@ function openShare(WindowsServerName, ShareName) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description 
+ * @param {String} domain
+ */
 function openMMC(domain) {
     alert("openMMC( " + domain + " )");
 
@@ -188,6 +240,10 @@ function openMMC(domain) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description 
+ * @param {String} domain
+ */
 function openWindowsShell(domain) {
     alert("Under Construction!");
     return null;
@@ -204,6 +260,10 @@ function openWindowsShell(domain) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description
+ * @param {String} domain
+ */
 function openPowerShell(domain) {
     var WshShell = new ActiveXObject("WScript.Shell");
     var WshSysEnv = WshShell.Environment("Process")
@@ -216,6 +276,10 @@ function openPowerShell(domain) {
     finally { WshShell = null; }
 }
 
+/**
+ * @description
+ * @param {String} domain
+ */
 function openSqlPowerShell(domain) {
     var WshShell = new ActiveXObject("WScript.Shell");
     var WshSysEnv = WshShell.Environment("Process")
@@ -232,6 +296,10 @@ function openSqlPowerShell(domain) {
 ** internal functions **
 */
 
+/**
+ * @description
+ * @param {Date} objDate
+ */
 function DateToIso8601(objDate) {
     objDate == null ? objDate = new Date() : null;
     // ToDo: Handle zero date (1970-01-01T1:0:0.0)
@@ -246,8 +314,9 @@ function DateToIso8601(objDate) {
     return IsoDate;
 }
 
-/*
-Check if the user is administrator (Active Directory, Local Administrator)
-*/
-function isAdmin(UserName) {
+/**
+ * @description Check if the user is administrator (Active Directory, Local Administrator)
+ * @param {String} UserName
+ */
+function isAdmin(UserName){
 }

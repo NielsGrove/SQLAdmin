@@ -7,15 +7,12 @@ HISTORY
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
 */
 
+/**
+ * @description List computers active in SQLAdmin Repository.
+ * ???        (NGR) Function created.
+ * 2014-10-30 (NGR) Function changed from SSDB count to MSSQL count.
+ */
 function ComputersShow() {
-    /*
-    DESCRIPTION
-    List computers active in SQLAdmin Repository.
-  
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-30 (NGR) Function changed from SSDB count to MSSQL count.
-    */
     document.title = 'SqlAnchor > Computers';
 
     cmdDbaRepository.CommandText = '[sqlanchor].[computer_summary-get]';
@@ -48,15 +45,14 @@ function ComputersShow() {
     MainArea.innerHTML = markup;
 }  // ComputersShow()
 
+/**
+ * @description Show details on computer registered in SQLAdmin Repository.
+ * ???        (NGR) Function created
+ * 2014-10-31 (NGR) OS installation date disabled.
+ *
+ * @param {String} ComputerName
+ */
 function ComputerDetailsShow(ComputerName) {
-    /*
-    DESCRIPTION
-    Show details on computer registered in SQLAdmin Repository.
-  
-    HISTORY
-    ???        (NGR) Function created
-    2014-10-31 (NGR) OS installation date disabled.
-    */
     document.title = 'SqlAnchor > Computers > ' + ComputerName;
 
     var markup = '<h2>' + ComputerName + '</h2>' +
@@ -162,7 +158,10 @@ function ComputerDetailsShow(ComputerName) {
     MainArea.innerHTML = markup;
 }  // ComputerDetailsShow()
 
-
+/**
+ * @description
+ * @param {String} ComputerName
+ */
 function buttonComputerDetails(ComputerName) {
     var tag = '<input type="button" value="C&raquo;" ' +
         'onclick="ComputerDetailsShow(\'' + ComputerName + '\');" ' +
@@ -171,13 +170,13 @@ function buttonComputerDetails(ComputerName) {
     return tag;
 }
 
+/**
+ * @description Create HTML link for the function ComputerDetailsShow().
+ * 2014-10-30 (NGR) Functioncreated.
+ *
+ * @param {String} ComputerName
+ */
 function linkComputerDetails(ComputerName) {
-    /*
-    DESCRIPTION
-    Create HTML link for the function ComputerDetailsShow().
-    HISTORY
-    2014-10-30 (NGR) Functioncreated.
-    */
     var tag = '<a href="#"' +
         "onclick=\"ComputerDetailsShow('" + ComputerName + "');return false;\"" +
         'title="Show details for the computer &bdquo;' + ComputerName + '&ldquo;.">' +
@@ -186,7 +185,11 @@ function linkComputerDetails(ComputerName) {
     return tag;
 }
 
-
+/**
+ * @description
+ * @param {String} WindowsServerName
+ * @param {String} WindowsShareName
+ */
 function buttonWindowsShare(WindowsServerName, WindowsShareName) {
     var tag = '<input type="button" value="' + WindowsShareName + '" ' +
         'onclick="openShare( \'' + WindowsServerName + '\', \'' + WindowsShareName + '\' );" ' +
@@ -194,15 +197,15 @@ function buttonWindowsShare(WindowsServerName, WindowsShareName) {
     return tag;
 }
 
+/**
+ * @description Create HTML buttom for default share on given local path on a computer.
+ * ???        (NGR) Function created
+ * 2015-04-24 (NGR) Drive letter always upper-case.
+ *
+ * @param {any} WindowsServerName
+ * @param {any} LocalPath
+ */
 function buttonDefaultShare(WindowsServerName, LocalPath) {
-	/*
-	DESCRIPTION
-	Create HTML buttom for default share on given local path on a computer.
-	
-	HISTORY
-	???        (NGR) Function created
-	2015-04-24 (NGR) Drive letter always upper-case.
-	*/
     if (LocalPath) {
         // Get drive letter from LocalPath
         var DriveLetter = LocalPath.charAt(0).toUpperCase();
@@ -218,6 +221,10 @@ function buttonDefaultShare(WindowsServerName, LocalPath) {
     return tag;
 }
 
+/**
+ * @description
+ * @param {String} WindowsServerName
+ */
 function buttonRemoteDesktop(WindowsServerName) {
     var tag = '<input type="button" value="&loz;" ' +
         'onclick="openRemoteDesktop( \'' + WindowsServerName + '\' );" ' +
@@ -226,6 +233,10 @@ function buttonRemoteDesktop(WindowsServerName) {
     return tag;
 }
 
+/**
+ * @description
+ * @param {String} WindowsServerName
+ */
 function buttonAdminRemoteDesktop(WindowsServerName) {
     return '';  // Osolete by Windows Server design
 
@@ -236,7 +247,10 @@ function buttonAdminRemoteDesktop(WindowsServerName) {
     return tag;
 }
 
-
+/**
+ * @description
+ * @param {String} ComputerName
+ */
 function buttonComputerManagement(ComputerName) {
     var tag = '<input type="button" value="CM" ' +
         'onclick="openComputerManagement( \'' + ComputerName + '\' );" ' +

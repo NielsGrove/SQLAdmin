@@ -7,15 +7,11 @@ HISTORY
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
 */
 
+/**
+ * @description List all SQL Server Database Engine instances.
+ * ???  (NGR) Function created.
+ */
 function SsdbShow() {
-    /*
-    DESCRIPTION
-    List all SQL Server Database Engine instances.
-  
-    HISTORY
-    ???  (NGR) Function created.
-    */
-
     document.title = 'SqlAnchor > SSDB';
 
     var markup = '<h1>SQL Server Database Engine (SSDB)</h1>' +
@@ -53,16 +49,16 @@ function SsdbShow() {
     MainArea.innerHTML = markup;
 }  // SsdbInstancesShow()
 
+/**
+ * @description Show details on SQL Server Database Engine instance.
+ * ???        (NGR) Function created.
+ * 2014-12-30 (NGR) Service Call 91514: Error in list of databases fixed. Correct presentation of MAXDOP. More precise presentation of NULL values in SSDB details table.
+ *                  Prettier presentation of default instance in heading and title.
+ *
+ * @param {String} SqlName
+ * @param {String} ComputerName
+ */
 function SsdbDetailsShow(SqlName, ComputerName) {
-    /*
-    DESCRIPTION
-    Show details on SQL Server Database Engine instance.
-  
-    HISTORY
-    ???        (NGR) Function created.
-    2014-12-30 (NGR) Service Call 91514: Error in list of databases fixed. Correct presentation of MAXDOP. More precise presentation of NULL values in SSDB details table.
-                       Prettier presentation of default instance in heading and title.
-    */
     document.title = 'SqlAnchor > DB instance > ' + ComputerName + (SqlName == '.' ? '' : '\\' + SqlName);
 
     var markup = '<h1>Database Engine instance &bdquo;' + ComputerName + (SqlName == '.' ? '' : '\\' + SqlName) + '&ldquo;</h1>' +
@@ -185,10 +181,12 @@ function SsdbDetailsShow(SqlName, ComputerName) {
     MainArea.innerHTML = markup;
 }  //SsdbDetailsShow()
 
-
+/**
+ * @description UNDER CONSTRUCTION
+ * @param {String} ComputerName
+ * @param {String} SqlName
+ */
 function changeSsdbDescription(ComputerName, SqlName) {
-    /*** UNDER CONSTRUCTION ***
-    */
     //window.open('', 'Change instance description');
     alert('changeSsdbDescription(' + ComputerName + ', ' + SqlName + ')');
     var Popup = window.createPopup();
@@ -197,9 +195,12 @@ function changeSsdbDescription(ComputerName, SqlName) {
     Popup.show(150, 150, 200, 50, document.body);
 }
 
+/**
+ * @description UNDER CONSTRUCTION
+ * @param {String} ComputerName
+ * @param {String} SqlName
+ */
 function changeSsdbDescription_1(ComputerName, SqlName) {
-    /*** UNDER CONSTRUCTION ***
-    */
     document.title = 'SqlAnchor > DB Instance ' + ComputerName + '\\' + SqlName;
 
     var markup = '<h2>' + ComputerName + '\\' + SqlName + '</h2>';
@@ -283,7 +284,11 @@ function changeSsdbDescription_1(ComputerName, SqlName) {
     MainArea.innerHTML = markup;
 }  // changeSsdbDescription()
 
-
+/**
+ * @description
+ * @param {String} SsdbName
+ * @param {String} WindowsServerName
+ */
 function buttonSsdbDetails(SsdbName, WindowsServerName) {
     var tag = '<input type="button" value="SSDB&raquo;" ' +
         'onclick="SsdbDetailsShow(\'' + SsdbName + '\',\'' + WindowsServerName + '\');" ' +
@@ -292,13 +297,14 @@ function buttonSsdbDetails(SsdbName, WindowsServerName) {
     return tag;
 }
 
+/**
+ * @description Create HTML link for the function SsdbDetailsShow().
+ * 2014-10-30 (NGR) Function created.
+ *
+ * @param {String} ComputerName
+ * @param {String} SsdbName
+ */
 function linkSsdbDetails(ComputerName, SsdbName) {
-    /*
-    DESCRIPTION
-    Create HTML link for the function SsdbDetailsShow().
-    HISTORY
-    2014-10-30 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"SsdbDetailsShow('" + SsdbName + "','" + ComputerName + "');return false;\"" +
         'title="Show details for the SQL&nbsp;Server Database&nbsp;Engine instance&nbsp;&bdquo;' + (SsdbName == '.' ? '(default)' : SsdbName) + '&ldquo; on the computer&nbsp;&bdquo;' + ComputerName + '&ldquo;.">' +
@@ -307,7 +313,11 @@ function linkSsdbDetails(ComputerName, SsdbName) {
     return tag;
 }
 
-
+/**
+ * @description
+ * @param {String} ComputerName
+ * @param {String} SqlName
+ */
 function buttonSsdbDescription(ComputerName, SqlName) {
     return '';  // Under Construction!
 
@@ -322,15 +332,12 @@ function buttonSsdbDescription(ComputerName, SqlName) {
 /*
 SSDB Database
 */
+/**
+ * @description Show conplete list of active databases in SQLAdmin Repository.
+ * ???        (NGR) Function created
+ * 2015-04-24 (NGR) Titles added to tables.
+ */
 function SsdbDatabasesShow() {
-    /*
-    DESCRIPTION
-      Show conplete list of active databases in SQLAdmin Repository.
-  
-    HISTORY
-    ???        (NGR) Function created
-      2015-04-24 (NGR) Titles added to tables.
-    */
     document.title = 'DBAnchor > SSDB Databases';
 
     var markup = '<h1>SQL Server Database Engine (SSDB) database</h1>' +
@@ -380,15 +387,15 @@ function SsdbDatabasesShow() {
     MainArea.innerHTML = markup;
 }  // SsdbDatabasesShow()
 
-
+/**
+ * @description Show details on given database.
+ * ??? (NGR) Function created.
+ *
+ * @param {any} ComputerName
+ * @param {any} SsdbName
+ * @param {any} DatabaseName
+ */
 function SsdbDatabaseDetailsShow(ComputerName, SsdbName, DatabaseName) {
-	/*
-	DESCRIPTION
-	Show details on given database.
-	
-	HISTORY
-	??? (NGR) Function created.
-	*/
     document.title = 'SqlAnchor > SSDB > Databases > ' + DatabaseName + ' (' + ComputerName + (SsdbName == '.' ? '' : '\\' + SsdbName) + ')';
 
     var markup = '<h2>Database &bdquo;' + DatabaseName + '&ldquo;</h2>' +
@@ -478,15 +485,15 @@ function SsdbDatabaseDetailsShow(ComputerName, SsdbName, DatabaseName) {
     MainArea.innerHTML = markup;
 }  //SsdbDatabaseDetailsShow()
 
-
+/**
+ * @description Create HTML buttom for the function SsdbDetailsShow().
+ * 2015-04-24 (NGR) Function obsolete.
+ *
+ * @param {any} ComputerName
+ * @param {any} SsdbName
+ * @param {any} SsdbDatabaseName
+ */
 function buttonSsdbDatabaseDetails(ComputerName, SsdbName, SsdbDatabaseName) {
-    /*
-    DESCRIPTION
-    Create HTML buttom for the function SsdbDetailsShow().
-  	
-      HISTORY
-      2015-04-24 (NGR) Function obsolete.
-    */
     return '<p>Function buttonSsdbDatabaseDetails() is obsolete.</p>'
 
     /*var tag = '<input type="button" value="&raquo;" ' +
@@ -496,13 +503,15 @@ function buttonSsdbDatabaseDetails(ComputerName, SsdbName, SsdbDatabaseName) {
     return tag;*/
 }
 
+/**
+ * @description Create HTML link for the function SsdbDatabaseDetailsShow().
+ * 2014-10-30 (NGR) Function created.
+ *
+ * @param {any} ComputerName
+ * @param {any} SsdbName
+ * @param {any} SsdbDatabaseName
+ */
 function linkSsdbDatabaseDetails(ComputerName, SsdbName, SsdbDatabaseName) {
-    /*
-    DESCRIPTION
-    Create HTML link for the function SsdbDatabaseDetailsShow().
-    HISTORY
-    2014-10-30 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"SsdbDatabaseDetailsShow('" + ComputerName + "','" + SsdbName + "','" + SsdbDatabaseName + "');return false;\"" +
         'title="Show details for the SQL&nbsp;Server Database&nbsp;Engine database&nbsp;&bdquo;' + SsdbDatabaseName + '&ldquo; on the SSDB&nbsp;instance&nbsp;&bdquo;' + (ComputerName + '\\' + SsdbName) + '&ldquo;.">' +

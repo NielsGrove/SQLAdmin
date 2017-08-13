@@ -3,8 +3,9 @@ DESCRIPTION
 SQL Server Database Engine (SSDB) in SQLAnchor.
 
 HISTORY
-2014-10-24 (Niels Grove-Rasmussen) File created. Initial content pasted from SqlAnchor.hta, SqlAnchor.Core.js and SqlAnchor.DetailPages.js
+2017-08-13 (Niels Grove-Rasmussen) Comments converted to JSDoc.
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
+2014-10-24 (Niels Grove-Rasmussen) File created. Initial content pasted from SqlAnchor.hta, SqlAnchor.Core.js and SqlAnchor.DetailPages.js
 */
 
 /**

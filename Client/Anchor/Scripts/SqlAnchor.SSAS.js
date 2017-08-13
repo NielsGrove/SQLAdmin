@@ -7,15 +7,12 @@ HISTORY
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
 */
 
-
+/**
+ * @description List SQL Server Analysis Services (SSAS) installations.
+ * <p>2014-11-11 (NGR) Function definition moved from "SqlAnchor.hta" to "SqlAnchor.SSAS.js".</p>
+ * <p>???        (NGR) Function created.</p>
+ */
 function SsasShow() {
-    /*
-    DESCRIPTION
-    List SQL Server Analysis Services (SSAS) installations.
-    HISTORY
-    ???        (NGR) Function created.
-    2014-11-11 (NGR) Function definition moved from "SqlAnchor.hta" to "SqlAnchor.SSAS.js".
-    */
     document.title = 'SqlAnchor > SSAS';
 
     var markup = '<h1>SQL Server Analysis Services (SSAS)</h1>' +
@@ -44,13 +41,14 @@ function SsasShow() {
     MainArea.innerHTML = markup;
 }  // SsasShow()
 
+/**
+ * @description Show details on SQL Server Analysis Services (SSAS) instance.
+ * <p>2014-11-13 (NGR) Function created.</p>
+ *
+ * @param {String} ComputerName
+ * @param {String} SsasName
+ */
 function SsasDetailsShow(ComputerName, SsasName) {
-    /*
-    DESCRIPTION
-    Show details on SQL Server Analysis Services (SSAS) instance.
-    HISTORY
-    2014-11-13 (NGR) Function created.
-    */
     document.title = 'SqlAnchor > SSAS instance > ' + ComputerName + '\\' + SsasName
 
     cmdDbaRepository.CommandText = '[sqlanchor].[ssas_detail-get]';
@@ -100,14 +98,14 @@ function SsasDetailsShow(ComputerName, SsasName) {
         '</table>';
 }  // SsasDetailsShow()
 
-
+/**
+ * @description Create HTML link for the function SsasDetailsShow().
+ * <p>2014-11-13 (NGR) Function created.</p>
+ *
+ * @param {String} ComputerName
+ * @param {String} SsasName
+ */
 function linkSsasDetails(ComputerName, SsasName) {
-    /*
-    DESCRIPTION
-    Create HTML link for the function SsasDetailsShow().
-    HISTORY
-    2014-11-13 (NGR) Functioncreated.
-    */
     var tag = '<a href="#"' +
         "onclick=\"SsasDetailsShow('" + ComputerName + "','" + SsasName + "');return false;\"" +
         'title="Show details for the SQL&nbsp;Server Analysis&nbsp;Services instance&nbsp;&bdquo;' + (SsasName == '.' ? '(default)' : SsasName) + '&ldquo; on the computer&nbsp;&bdquo;' + ComputerName + '&ldquo;.">' +

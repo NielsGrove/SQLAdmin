@@ -5,9 +5,10 @@ Present organisation data in SqlAnchor
 Filename   : SqlAnchor.Organisation.js
 
 HISTORY
-2012-09-13 (Niels Grove-Rasmussen) File created.
-2014-10-31 (Niels Grove-Rasmussen) File renamed from "SqlAnchor.Environment.js" to "SqlAnchor.Organisation.js".
+2017-08-13 (Niels Grove-Rasmussen) Comments converted to JSDoc.
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
+2014-10-31 (Niels Grove-Rasmussen) File renamed from "SqlAnchor.Environment.js" to "SqlAnchor.Organisation.js".
+2012-09-13 (Niels Grove-Rasmussen) File created.
 */
 
 /*

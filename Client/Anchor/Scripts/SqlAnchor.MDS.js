@@ -3,17 +3,16 @@ DESCRIPTION
 SQL Server Master Data Services (MDS) in SQLAnchor.
 
 HISTORY
-2014-10-24 (Niels Grove-Rasmussen) File created. Initial content pasted from SqlAnchor.hta
+2018-08-13 (Niels Grove-Rasmussen) Comments converted to JSDoc.
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
+2014-10-24 (Niels Grove-Rasmussen) File created. Initial content pasted from SqlAnchor.hta
 */
 
+/**
+ * @description Show all MDS installation registrered in SQLAdmin Repository.
+ * <p>2014-10-14 (NGR) Function created.</p>
+ */
 function MdsShow() {
-    /*
-    DESCRIPTION
-    Show all MDS installation registrered in SQLAdmin Repository.
-    HISTORY
-    2014-10-14 (NGR) Function created.
-    */
     document.title = 'SqlAnchor > MDS';
 
     var markup = '<h1>SQL Server Master Data Services (MDS)</h1>' +
@@ -51,14 +50,15 @@ function MdsShow() {
     MainArea.innerHTML = markup;
 }  // MdsShow()
 
-
+/**
+ * @description Show details on SQL Server Master Data Services (MDS) installation.
+ * <p>2014-10-24 (NGR) Function created.</p>
+ *
+ * @param {String} ComputerName
+ * @param {String} SsdbName
+ * @param {String} DatabaseName
+ */
 function MdsDetailsShow(ComputerName, SsdbName, DatabaseName) {
-    /*
-    DESCRIPTION
-    Show details on SQL Server Master Data Services (MDS) installation.
-    HISTORY
-    2014-10-24 (NGR) Function created.
-    */
     document.title = 'SQLAnchor > MDS > ' + ComputerName;
 
     var MasterDataManagerUrl = 'http://' + ComputerName + ':8080';
@@ -72,13 +72,15 @@ function MdsDetailsShow(ComputerName, SsdbName, DatabaseName) {
     MainArea.innerHTML = markup;
 }
 
+/**
+ * @description Create HTML link for the function MdsDetailsShow().
+ * <p>2014-10-24 (NGR) Function created.</p>
+ *
+ * @param {String} ComputerName
+ * @param {String} SsdbName
+ * @param {String} DatabaseName
+ */
 function linkMdsDetails(ComputerName, SsdbName, DatabaseName) {
-    /*
-    DESCRIPTION
-    Create HTML link for the function MdsDetailsShow().
-    HISTORY
-    2014-10-24 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"MdsDetailsShow('" + ComputerName + "','" + SsdbName + "','" + DatabaseName + "');return false;\"" +
         'title="Show details for the MDS installation on the computer &bdquo;' + ComputerName + '&ldquo;.">' +

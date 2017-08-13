@@ -14,11 +14,11 @@ HISTORY
 Environment
 */
 
+/**
+ * @description
+ * ???  (NGR) Function created.
+ */
 function EnvironmentsShow() {
-    /*
-    HISTORY
-    ???  (NGR) Function created.
-    */
     document.title = 'SqlAnchor > Environments';
 
     var markup = '<h1>Environment</h1>' +
@@ -52,12 +52,13 @@ function EnvironmentsShow() {
     MainArea.innerHTML = markup;
 }  // EnvironmentsShow()
 
-
+/**
+ * @description
+ * ???  (NGR) Function created.
+ *
+ * @param {String} EnvironmentAbbreviation
+ */
 function openEnvironmentDetails(EnvironmentAbbreviation) {
-    /*
-    HISTORY
-    ???  (NGR) Function created.
-    */
     cmdDbaRepository.CommandText = '[sqlanchor].[environment_detail-get]';
     cmdDbaRepository.Parameters.Append(cmdDbaRepository.CreateParameter('@environment_abbreviation', adChar, adParamInput, 3, EnvironmentAbbreviation));
     cnnDbaRepository.Open();
@@ -131,14 +132,13 @@ function openEnvironmentDetails(EnvironmentAbbreviation) {
     MainArea.innerHTML = markup;
 }  // openEnvironmentDetails()
 
-
+/**
+ * @description Create HTML link for the function openEnvironmentDetails().
+ * 2014-10-24 (NGR) Function created.
+ *
+ * @param {String} EnvironmentAbbreviation
+ */
 function linkEnvironmentDetails(EnvironmentAbbreviation) {
-    /*
-    DESCRIPTION
-    Create HTML link for the function openEnvironmentDetails().
-    HISTRORY
-    2014-10-24 (NGR) Function created.
-    */
     var tag = '<a href="#"' +
         "onclick=\"openEnvironmentDetails('" + EnvironmentAbbreviation + "');return false;\"" +
         'title="Show details for the environment &bdquo;' + EnvironmentAbbreviation + '&ldquo;.">' +
@@ -147,13 +147,13 @@ function linkEnvironmentDetails(EnvironmentAbbreviation) {
     return tag;
 }
 
+/**
+ * @description Create HTML button for the function openEnvironmentDetaions().
+ * ???  (NGR) Function created.
+ *
+ * @param {String} EnvironmentName
+ */
 function buttonEnvironmentDetails(EnvironmentName) {
-    /*
-    DESCRIPTION
-    Create HTML button for the function openEnvironmentDetaions().
-    HISTORY
-    ???  (NGR) Function created.
-    */
     var tag = '<input type="button" value="&raquo;" ' +
         'onclick="openEnvironmentDetails(\'' + EnvironmentName + '\');" ' +
         'title="Show details for the environment &bdquo;' + EnvironmentName + '&ldquo;." ' +
@@ -166,12 +166,12 @@ function buttonEnvironmentDetails(EnvironmentName) {
 Department
 */
 
+/**
+ * @description
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from "SqlAnchor.hta" to "SqlAnchor.Organisation.js"
+ */
 function DepartmentsShow() {
-    /*
-    HISTORY
-    ???        (NGR) Function created.
-    2014-10-31 (NGR) Function moved from "SqlAnchor.hta" to "SqlAnchor.Organisation.js"
-    */
     document.title = 'SqlAnchor > Departments';
 
     var markup = '<h1>Department</h1>' +
@@ -199,13 +199,15 @@ function DepartmentsShow() {
     MainArea.innerHTML = markup;
 }  // DepartmentsShow()
 
+/**
+ * @description
+ * ???        (NGR) Function created
+ * 2014-10-31 (NGR) Function moved from "SqlAnchor.DetailPages.js" to "SqlAnchor.Organisation.js"
+ *                  Function renamed from "openDepartmentDetails()" to "DepartmendDetailsShow()"
+ *
+ * @param {String} DepartmentName
+ */
 function DepartmentDetailsShow(DepartmentName) {
-    /*
-    HISTORY
-    ???        (NGR) Function created
-    2014-10-31 (NGR) Function moved from "SqlAnchor.DetailPages.js" to "SqlAnchor.Organisation.js"
-                     Function renamed from "openDepartmentDetails()" to "DepartmendDetailsShow()"
-    */
     document.title = 'SqlAnchor > Department > ' + DepartmentName;
 
     var markup = '<h1>Department &bdquo;' + DepartmentName + '&ldquo;</h1>'
@@ -213,12 +215,13 @@ function DepartmentDetailsShow(DepartmentName) {
     MainArea.innerHTML = markup;
 }
 
-
+/**
+ * @description
+ * 2014-10-31 (NGR) Function created.
+ *
+ * @param {String} DepartmentName
+ */
 function linkDepartmentDetails(DepartmentName) {
-    /*
-    HISTORY
-    2014-10-31 (NGR) Function created
-    */
     var tag = '<a href="#"' +
         "onclick=\"DepartmentDetailsShow('" + DepartmentName + "');return false;\"" +
         'title="Show details for the department&nbsp;&bdquo;' + DepartmentName + '&ldquo;.">' +
@@ -228,12 +231,14 @@ function linkDepartmentDetails(DepartmentName) {
 
 }
 
+/**
+ * @description
+ * ???        (NGR) Function created.
+ * 2014-10-31 (NGR) Function moved from "SqlAnchor.Core.js" to "SqlAnchor.Organisation.js".
+ *
+ * @param {String} DepartmentName
+ */
 function buttonDepartmentDetails(DepartmentName) {
-    /*
-    HISTORY
-    ???        (NGR) Function created
-    2014-10-31 (NGR) Function moved from "SqlAnchor.Core.js" to "SqlAnchor.Organisation.js"
-    */
     var tag = '<input type="button" value="&raquo;" ' +
         'onclick="openDepartmentDetails(\'' + DepartmentName + '\');" ' +
         'title="Show details for the department &bdquo;' + DepartmentName + '&ldquo;." ' +

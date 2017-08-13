@@ -3,10 +3,15 @@ DESCRIPTION
 SQL Server Integration Services (SSIS) in SQLAnchor.
 
 HISTORY
-2014-10-30 (Niels Grove-Rasmussen) File created. Initial content pasted from SqlAnchor.hta, SqlAnchor.Core.js and SqlAnchor.DetailPages.js
+2017-08-13 (Niels Grove-Rasmussen) Comments comverted to JSDoc.
 2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
+2014-10-30 (Niels Grove-Rasmussen) File created. Initial content pasted from SqlAnchor.hta, SqlAnchor.Core.js and SqlAnchor.DetailPages.js.
 */
 
+/**
+ * @description
+ * <p>??? (NGR) Function created.</p>
+ */
 function SsisShow() {
     document.title = 'SqlAnchor > SSIS';
 

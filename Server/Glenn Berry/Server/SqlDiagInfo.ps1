@@ -15,12 +15,12 @@
 #Requires -Version 5
 Set-StrictMode -Version Latest
 
-#Import-Module $PSScriptRoot\GlennBerryInfo.psm1
+Import-Module $PSScriptRoot\SqlDiagInfo.psm1
 
 
-#region GlennBerryInfo
+#region SqlDiagInfo
 
-function Verb-Noun {
+function Get-SqlDiagInfo {
 <#
 .DESCRIPTION
   <Description of the function>
@@ -44,7 +44,7 @@ Param(
 
 Begin {
   $mywatch = [System.Diagnostics.Stopwatch]::StartNew()
-  "[{0:s}Z  BEGIN  ]  <function name>( '$param1' )" -f [System.DateTime]::UtcNow | Write-Verbose
+  "[{0:s}Z  BEGIN  ]  GetSqlDiagInfo( '$param1' )" -f [System.DateTime]::UtcNow | Write-Verbose
 }
 
 Process {
@@ -56,11 +56,11 @@ End {
   [string]$Message = "<function name> finished with success. Duration = $($mywatch.Elapsed.ToString()). [hh:mm:ss.ddd]"
   "[{0:s}Z  END    ]  $Message" -f [System.DateTime]::UtcNow | Write-Output
 }
-}  # Verb-Noun()
+}  # Get-SqlDiagInfo()
 
-#endregion GlennBerryInfo
+#endregion SqlDiagInfo
 
 
 ###  INVOKE  ###
 Clear-Host
-<function call> -Verbose #-Debug
+Get-SqlDiagInfo -Verbose #-Debug

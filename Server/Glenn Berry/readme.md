@@ -2,7 +2,7 @@
 
 Februar 2019 ([link](https://www.sqlskills.com/blogs/glenn/sql-server-diagnostic-information-queries-for-february-2019/))
 
-Script(-s) to execute Glenn Berry scripts on SQL Server installation.
-Output in XML-format for off-line presentation.
+PowerShell scripts and modules to execute Glenn Berry scripts on SQL Server installation.
+Output in XML-format for off-line presentation. Export using PowerShell CmdLet [Export-Clixml](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-clixml).
 
-XSL file(-s) to present XML-files with data from Glenn Berry scripts.
+XSL file(-s) to present XML-files with data from Glenn Berry scripts. XSL files include CSS and JavaScript (maybe) to present data in a usefull way.

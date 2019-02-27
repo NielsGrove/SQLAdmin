@@ -9,11 +9,12 @@ $ScriptContent = Get-Content -LiteralPath $ScriptFile.FullName
 foreach($Line in $ScriptContent) {
   # Script start pattern: "-- {script description}  (Query {query#}) ({query title})"
   # Script end pattern: "------"
+  # Script description in lines between end pattern and next script start pattern
   $ScriptStart = New-Object System.Text.RegularExpressions.Regex()
 }
 
 
-<# 
+<# Windows Performance Guide...
 $Reader = New-Object System.IO.StreamReader($ScriptFile.FullName)
 while(($Line - $Reader.ReadLine()) -ne $null) {
   

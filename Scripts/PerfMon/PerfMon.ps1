@@ -9,13 +9,8 @@ Work with Windows Performance Counters
 .EXAMPLE
 
 .NOTES
-Filename  : PerfMon.ps1
-.NOTES
 2019-03-04  NGR  Script moved to GitHub (SqlAdmin)
 2016-11-01  NGR  Script created for basic baseline collection set.
-
-.LINK
-Get-Help about_Comment_Based_Help
 #>
 
 Requires -Version 4
@@ -36,12 +31,6 @@ function Set-CollectionSet {
   (none)
 .RETURNVALUE
   (none)
-.LINK
-  MSDN Library: PLA Interfaces
-    (https://msdn.microsoft.com/en-us/library/aa372634.aspx)
-.LINK
-  TechNet, Brad Rutkowski's Blog: Interacting with Data Collector Sets via Powershell
-    (https://blogs.technet.microsoft.com/brad_rutkowski/2009/02/18/interacting-with-data-collector-sets-via-powershell/)
 #>
 [CmdletBinding()]
 [OutputType([void])]
@@ -95,4 +84,4 @@ End {
 ###  INVOKE  ###
 
 Clear-Host
-Set-CollectionSet -Name 'SQLAdmin_00' -Verbose #-Debug
+Set-CollectionSet -Name 'SQLAdmin' -Verbose #-Debug

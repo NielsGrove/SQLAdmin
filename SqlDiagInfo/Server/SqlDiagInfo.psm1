@@ -20,12 +20,16 @@ function Get-Ssdb {
   [string[]]$SsdbNames
   [string[]]$SsdbNames = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server').InstalledInstances
 
+  <# example on instance info in registry
+  Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\SSDB2017\MSSQLServer\CurrentVersion'
+  Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\SSDB2017\Setup'
+  #>
+
   [PSObject[]]$Ssdb = @()
   foreach($SsdbName in $SsdbNames) {
     # Verify sysadmin rights on each SSDB instance (check on CREATE ANY DATABASE permission)
 	 $sql = "SELECT TOP 1 permission_name FROM fn_my_permissions(NULL, 'SERVER') WHERE permission_name = '$permission'"
-	 $da = new-object System.Data.SqlClient.SqlDataAdapter `
-    ($sql, $connStr)
+	 $da = new-object System.Data.SqlClient.SqlDataAdapter($sql, $connStr)
     $da.SelectCommand.CommandTimeout = 10
     $dt = new-object System.Data.DataTable
     $da.fill($dt) | out-null

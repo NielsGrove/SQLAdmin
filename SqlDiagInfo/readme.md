@@ -2,7 +2,8 @@
 
 Based on Glenn Berry SQL Server Diagnostic Information Queries. Automated execution and formatted presentation of generated data.
 
-Scripts Februar 2019 ([link](https://www.sqlskills.com/blogs/glenn/sql-server-diagnostic-information-queries-for-february-2019/))
+* Scripts May 2019 ([link](https://www.sqlskills.com/blogs/glenn/sql-server-diagnostic-information-queries-for-may-2019))
+* Scripts Februar 2019 ([link](https://www.sqlskills.com/blogs/glenn/sql-server-diagnostic-information-queries-for-february-2019/))
 
 ## Description
 

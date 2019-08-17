@@ -109,72 +109,8 @@ End {
 }
 }  # New-VirtualMachine()
 
-
-#Create virtual network
-
-#Configure virtual machine
-
 #endregion Virtual Machine
 
-
-#region Windows Server
-
-# Install Windows Server 2019
-
-# Configure Windows Server
-
-#endregion Windows Server
-
-
-#region Active Directory domain
-
-# Create Domain Controller
-
-# Create domain
-
-# Configure domain
-
-# Add computer to domain
-
-#endregion Active Directory domain
-
-
-#region SQL Server
-#prereq: server and workstation in domain
-
-# Configure computer for SQL Server
-
-# Prepare SQL Server installation
-#   MSA for SSDB and SQL Agent
-
-# Install SQL Server
-
-# Configure SQL Server
-
-# Configure DBA workstation
-
-#region Availability Group
-# Prepare primary MSSQL
-# Prepare sync MSSQL
-# Prepare async MSSQL
-# Restore database 
-# Create AG
-# Configure sync db
-# Configure async db
-#endregion Availability Group
-
-#endregion SQL Server
-
-
-#region Windows 10
-<#
-.DESCRIPTION
-  Install Windows 10, add computer til AD domain and harden computer (DoD PAM?)
-#>
-
-
-
-#endregion Windows 10
 
 function Build-Sandbox {
 <#

@@ -37,7 +37,7 @@ Begin {
   $mywatch = [System.Diagnostics.Stopwatch]::StartNew()
   "[{0:s}Z  BEGIN  ]  <function name>( 'param1' )" -f [System.DateTime]::UtcNow | Write-Verbose
 
-  $VMwareInstallDir = 'C:\Program Files (x86)\VMware\VMware Workstation'
+  #$VMwareInstallDir = 'C:\Program Files (x86)\VMware\VMware Workstation'
 }
 
 Process {
@@ -67,7 +67,8 @@ function New-VirtualMachine {
 .RETURNVALUE
   (none)
 .LINK
-  <link to external reference or documentation>
+  Microsoft Docs: Tlbimp.exe (Type Library Importer)
+  (https://docs.microsoft.com/en-us/dotnet/framework/tools/tlbimp-exe-type-library-importer)
 #>
 [CmdletBinding()]
 [OutputType([void])]
@@ -78,11 +79,31 @@ Param(
 
 Begin {
   $mywatch = [System.Diagnostics.Stopwatch]::StartNew()
-  "[{0:s}Z  BEGIN  ]  New-VirtualMachine( 'param1' )" -f [System.DateTime]::UtcNow | Write-Verbose
+  "[{0:s}Z  BEGIN  ]  New-VirtualMachine( '$Name' )" -f [System.DateTime]::UtcNow | Write-Verbose
+
+  <#
+    You need to generate an interop for the VixCOM library with TlbImp.exe and add it to the PowerShell session.
+    Then the library constants will be accessible.
+    https://social.technet.microsoft.com/Forums/scriptcenter/en-US/35635da2-17ca-4a26-9dce-435fb3f9c194/powershell-access-to-com-constants-like-reference-object-in-wsf-file
+  #>
+  $TlblmpExe = 'C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools\TlbImp.exe'
+  $VixComDll = '(TBD - VMware Workstation 15)'
+  $VixComInterop = 'C:\VixCOM\VMWareTasks-1.7\Bin\Interop.VixCOM.dll'
+
+  & $TlblmpExe $VixComDll /namespace:VixCOM /out:$VixComInterop
+
+  Add-Type -Path $VixComInterop
+
+  $VixLib = New-Object -ComObject VixCOM.VixLib
+  $VixLib | gm
+  
 }
 
 Process {
   "[{0:s}Z  PROCESS]" -f [System.DateTime]::UtcNow | Write-Verbose
+
+  #$VixLib = New-Object -ComObject VixCOM.VixLib
+
 }
 
 End {

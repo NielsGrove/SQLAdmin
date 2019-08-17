@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package id="pkgVIX">
+    <job id="jobVIX">
+        <reference object="VixCOM.VixLib" />
+        <script language="JScript">
+
+            WScript.Echo(':: start...');
+            var VixLib = WScript.CreateObject("VixCOM.VixLib");
+
+        </script>
+    </job>
+</package>

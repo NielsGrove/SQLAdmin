@@ -1,6 +1,6 @@
 <#
 .DESCRIPTION
-  Simple VIX solution to focus on get something working...  
+  Simple VIXCOM solution to focus on get something working...  
 #>
 
 # (https://www.autoitscript.com/forum/topic/163266-vmware-automation-using-vixcomvixlib/)

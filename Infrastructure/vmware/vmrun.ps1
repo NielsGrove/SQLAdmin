@@ -3,7 +3,7 @@
   Simple trial on using vmrun.exe command tool to work with VMware workstation.
 
   !!!  Under Construction  !!!
-  Not completed as it is not possible to create new VM from scratch.
+  Not completed as it is not possible to create new VM from scratch using vmrun.
   Not good enough, dear VMware!
   
 .LINK

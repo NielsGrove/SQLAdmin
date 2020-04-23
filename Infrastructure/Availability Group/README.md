@@ -32,6 +32,13 @@ This is a simple overview of the provision process for the AG-sandbox.
 
 See details in the following sections.
 
+### Things to consider
+
+* BitLocker on all drives
+* SQL Server Transparent Data Encryption (TDE)
+* Kerberos authentication on SQL Server Availability Group replication
+* DoD DISA STIG compliance on Windows Server, PAM, SQL Server etc.
+
 ## Create virtual network
 
 * Custom network: VMnet13, host-only
@@ -50,11 +57,12 @@ See details in the following sections.
 
 1) Clone VM
     * Full Clone
-    * Use VMware REST API or vmrun tool?
+    * `vmrun clone ...`
 1) Configure VM
     * CPU: 2 vSockets each 1 vCore
     * Memory: 2 GB
     * Network: VMnet13
+    * `vmrun setNetworkAdapter ...`
 1) Configure vmxnet paravirtualized network ([vmxnet3](https://sqladm.blogspot.com/2019/03/vmxnet3-network-adapter.html)) adapter
 1) Start computer
 1) sysprep
@@ -72,8 +80,6 @@ See details in the following sections.
     * Start PowerShell as administrator:
     * `Rename-Computer -NewName 'DC00' -Restart`
     * Server will reboot
-1) ? Rename Administrator to SuperNiels and set password ?
-    * ( Password never expires )
 1) Configure vmxnet3 Ethernet Adapter
     * Power Management: Disable "Allow computer to turn off device to save power"
     * Rename adapter "Ethernet42"
@@ -95,35 +101,44 @@ See details in the following sections.
     * Default Gateway (IP): None (host-only)
 1) Check network configuration
     * Start PowerShell:
-    * `ipconfig -all`
+    * `ipconfig -all ...`
+1) Change drive letter on CD-ROM from D to X (xternal)
+1) Change time zone to UTC with no Daylight Saving
 1) Configure Print Spooler service
     * Start PowerShell as administrator:
     * `Stop-Service -Name 'spooler'`
     * `Set-Service -Name 'spooler' -StartupType 'Disabled'`
+1) Create admin folder
+    * `vmrun createDirectoryInGuest ...`
+1) Install PowerShell 7 - or later
 
 ### Configure Domain Controller
 
-1) Set password on Administrator user
+1) Set password on Administrator user if prompted...
 1) Add Windows Server roles with all features and tools:
     * Active Directory Domain Services (AD DS)
     * DNS Server
     * Start PowerShell as Administrator:
     * `Install-WindowsFeature –Name AD-Domain-Services -IncludeManagementTools`
+    * `Install-WindowsFeature -Name DNS -IncludeManagementTools`
 1) Promote server to Domain Controller
     * Use Server Manager or...
     * Start PowerShell as Administrator:
+    * `Install-ADDSForest -DomainName 'sqlbacon.lan'` (New forrest)
     * `dcpromo` - Does not work anymore!
-    * New forrest (Domain Name)
 1) Configure domain controller capabilities
     * Functional Level: Windows Server 2016
     * Domain Name System (DNS) server and Global Catalog (GC) on the domain
+    * Start PowerShell as Administrator:
+    * `$Forest = Get-ADForest`
+    * `Set-ADForestMode -Identity $Forest -Server $Forest.SchemaMaster -ForestMode Windows2016Forest`
 1) Set Directory Services Restore Mode (DSRM) password
     * Enter password ("u4N4WBZjgX2Cw")
 1) Configure DNS
     * Do not delegate
 1) Accept the NETBIOS name "SQLBACON"
 1) Accept default folders
-    * ? Create GPT partition with ReFS drive for higher resilience ?
+    * ? ToDo: Create GPT partition with ReFS drive for higher resilience ?
 1) Start AD DS installation
     * Server will reboot
 1) Change password on administrator SuperNiels when prompted (BaconGuf42)
@@ -140,23 +155,48 @@ See details in the following sections.
     * Full Clone
 1) Configure VM
     * CPU: 2 vSockets each 1 vCore
-    * Memory: 8 GB
+    * Memory: 8 GiB
     * Network: VMnet13
 1) Configure vmxnet paravirtualized network
 1) Start computer
 1) sysprep
-    * Start Windows Shell (CMD):
-    * `%WINDIR%\system32\sysprep\sysprep.exe /generalize /shutdown /oobe`
+    * (see above)
 1) Configure network: IP
 1) Add computer to AD
+1) Install RSAT
+    * Add Windows Capability:
+    * `Add-WindowsCapability -Online -Name Rsat.Dns.Tools ...`
+1) Install latest PowerShell, like 7
+    * Install SqlServer module
+    * `Install-Module -Name SqlServer -AllowClobber`
 1) Install latest SSMS
-1) Install PowerShell 7
+
+## Create Fileserver
+
+1) Clone VM
+1) Configure VM
+1) Configure vmxnet paravirtualized network
+1) Add disk(-s) for file share
+    * ? Storage Space ?
+1) sysprep
+1) Configure network
+1) Add computer to AD
+1) Configure file share
 
 ## Create Database Servers
 
 ### General Configuration
 
 1) Clone VM
+1) Configure VM
+    * CPU: 4 vSockets each 1 vCore
+    * Memory: 8 GiB
+    * Network: VMnet13
+1) Configure vmxnet paravirtualized network
+1) Add disks for data, translog, tempdb and backup
+    * Paravirtulized
+    * GPT partition
+    * ReFS format with 64 KB Allocation Unit
 1) sysprep
 1) Configure network: IP
 1) Add computer to AD
@@ -206,5 +246,7 @@ Addition configurations to add later:
 
 * AG Name: 
 * Listener: 
+
+[Troubleshooting an AG Failure](https://www.joshthecoder.com/2018/12/03/always-run-rhs-in-separate-process.html)
 
 1) Configure Quorum Voting

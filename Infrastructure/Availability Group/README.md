@@ -16,8 +16,6 @@ The architecture of this sandbox is in the document [Availability Group Sandbox 
 
 All computers are virtual running on VMware Workstation Pro. Each computer is based on a full clone of an existing vm that is updated but with minimum configuration.
 
-A virtual network is defined as Host-only to isolate the sandbox from the internet.
-
 This sandbox is build on Windows Server 2019 Std Ed, SQL Server 2019 Ent Ed and Windows 10 Pro. Automation is build in PowerShell 7 and T-SQL.
 
 ## Provision Process

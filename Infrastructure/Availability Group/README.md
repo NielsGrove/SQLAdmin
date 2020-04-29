@@ -5,6 +5,8 @@ Build a Availability Group sandbox with three replica. One Primary replica, one 
 
 At first this will be a rather manual process, but it is my intention to automate as much as I can figure out.
 
+The architecture of this sandbox is in the document [Availability Group Sandbox Architecture](SqlAgSandboxArchitecture.md).
+
 ## Infrastructure
 
 * Active Directory Domain Controller hosting domain.

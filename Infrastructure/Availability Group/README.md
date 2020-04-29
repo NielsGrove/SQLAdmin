@@ -10,7 +10,7 @@ At first this will be a rather manual process, but it is my intention to automat
 * Active Directory Domain Controller hosting domain.
 * Databaseservers, three nodes in domain.
 * Witness file server in domain.
-* Privileged Access Machine workstation in domain.
+* Privileged Access Machine (PAM) workstation in domain.
 
 All computers are virtual running on VMware Workstation Pro. Each computer is based on a full clone of an existing vm that is updated but with minimum configuration.
 

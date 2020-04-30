@@ -32,7 +32,7 @@ While the machine has access to the internet:
 1) Install latest SSMS
     * Install SqlServer module
     * `Install-Module -Name SqlServer -AllowClobber`
-1) Shut down VM: `shutdown.exe /s`
+1) Shut down VM: `Stop-Computer -ComputerName localhost`
 
 ## Configuration
 

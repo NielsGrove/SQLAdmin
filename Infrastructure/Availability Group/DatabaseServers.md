@@ -11,16 +11,21 @@ Full Clone
 While the machine has access to the internet:
 
 1) Start VM
-1) Install latest PowerShell (7+)
 1) Change drive letter on CD-ROM from D to X (xternal)
-1) Configure Print Spooler service
-    * Start PowerShell as administrator (Elevate with PAM00\LocalNiels):
+1) Install latest PowerShell (7+)
+    * Check GitHub [PowerShell](https://github.com/PowerShell/PowerShell) for latest LTS
+    * ? Enable PowerShell Remoting ?
+1) Stop and disable Print Spooler service
+    * Start PowerShell as administrator:
     * `Stop-Service -Name 'spooler'`
     * `Set-Service -Name 'spooler' -StartupType 'Disabled'`
-1) Create admin folder
+1) Create sqladmin folder
     * `New-Item -Path 'C:\' -Name '#sqladmin' -ItemType 'Directory'`
     * (from VMware host: `vmrun createDirectoryInGuest ...`)
-1) Shut down VM: `shutdown.exe /s`
+1) Copy SQL Server installation sets to VM sqladmin-folder
+    * Latest CU
+    * OHMS script files
+1) Shut down VM: `Stop-Computer -ComputerName localhost`
 
 ### Configuration
 
@@ -36,7 +41,11 @@ While the machine has access to the internet:
 1) Add computer to AD
 1) Create service accounts for database instance and SQL Agent (gMSA)
 1) Install SQL Server: Database Engine
+    * Mount ISO to VM from VMware host
+    * `DBENGINE ...`
 1) Install latest SQL Server CU
+    * `(TBD)`
+1) Stop and disable SQL VSS Writer service
 1) Configure backup (OHMS)
 
 ### ToDo : Addition configurations

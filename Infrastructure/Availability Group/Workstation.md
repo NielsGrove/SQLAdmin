@@ -5,7 +5,7 @@
 
 ## Clone VM
 
-    * Full Clone
+Full Clone.
 
 ## Pre-configuration
 
@@ -40,13 +40,11 @@ While the machine has access to the internet:
     * CPU: 2 vSockets each 1 vCore
     * Memory: 8 GiB
     * Network: VMnet13
-1) Configure vmxnet paravirtualized network
-    * SQLAdmin blog: [vmxnet3 network adapter](https://sqladm.blogspot.com/2019/03/vmxnet3-network-adapter.html)
+1) Configure vmxnet3 paravirtualized network
 1) Start VM
 1) sysprep
     * Start Windows Shell (CMD):
     * `%WINDIR%\system32\sysprep\sysprep.exe /generalize /shutdown /oobe`
-    * (see above)
 1) Start VM
 1) Configure computer on first start
     * Region: United States
@@ -69,10 +67,10 @@ While the machine has access to the internet:
     * Rename adapter "Ethernet42"
 1) Configure Internet Protocol Version 4 properties to static network definition
     * Start PowerShell as administrator:
-    * `Get-NetIPInterface -AddressFamily IPv4`
-    * Note ifIndex of InterfaceAlias Ethernet42 (here it is 6)
-    * `Set-NetIPInterface -InterfaceIndex 6 -Dhcp Disabled`
-    * `New-NetIPAddress -InterfaceIndex 6 -AddressFamily IPv4 -IPAddress '192.168.42.20' -PrefixLength 24`
+    * `Get-NetIPInterface -AddressFamily IPv4 | ? { $_.InterfaceAlias -ceq 'Ethernet42' } | select -prop ifIndex`
+    * Note ifIndex of InterfaceAlias Ethernet42 (the type of ifIndex is `uint32`)
+    * `Set-NetIPInterface -InterfaceIndex <ifIndex> -Dhcp Disabled`
+    * `New-NetIPAddress -InterfaceIndex <ifIndex> -AddressFamily IPv4 -IPAddress '192.168.42.20' -PrefixLength 24`
     * This must be done after changing network adapter as the configuration is assigned the adapter
 1) Configure DNS
     * Primary DNS (IP): 192.168.42.10 (this host)

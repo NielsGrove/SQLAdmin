@@ -57,17 +57,18 @@ See details in the following sections.
 
 1) Clone VM
     * Full Clone
-    * `vmrun clone ...`
+    * (from VMware host: `vmrun clone ...`)
 1) Configure VM
     * CPU: 2 vSockets each 1 vCore
     * Memory: 2 GB
     * Network: VMnet13
-    * `vmrun setNetworkAdapter ...`
-1) Configure vmxnet paravirtualized network ([vmxnet3](https://sqladm.blogspot.com/2019/03/vmxnet3-network-adapter.html)) adapter
+    * (from VMware host: `vmrun setNetworkAdapter ...`)
+1) Configure paravirtualized network ([vmxnet3](https://sqladm.blogspot.com/2019/03/vmxnet3-network-adapter.html)) adapter
 1) Start VM
 1) sysprep
     * Start Windows Shell (CMD):
     * `%WINDIR%\system32\sysprep\sysprep.exe /generalize /shutdown /oobe`
+    * (from VMware host: `vmrun ...`)
     * Reference: [Sysprep (Generalize) a Windows installation](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation)
 1) Start VM
     * Configure
@@ -101,7 +102,7 @@ See details in the following sections.
     * Default Gateway (IP): None (host-only)
 1) Check network configuration
     * Start PowerShell:
-    * `ipconfig -all ...`
+    * `ipconfig -all`
 1) Change drive letter on CD-ROM from D to X (xternal)
 1) Change time zone to UTC with no Daylight Saving
 1) Configure Print Spooler service

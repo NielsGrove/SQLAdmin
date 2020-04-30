@@ -28,6 +28,14 @@ SQL Server database servers installed with Database Engine to implement the thre
 
 Initially alle machines are installed dy defaults but the intention is to harden the machines to the references and tune them to resilience, scalability and security.
 
+### ToDo : Internet access with firewall
+
+Put a virtual firewall between the DNS server and the network. In this case the DNS should **not** be on the AD DC!!!
+
+The virtual network could be created like indicated in this article by VMware: [Custom Networking Configurations](https://www.vmware.com/support/ws55/doc/ws_net_configurations_custom.html).
+
+The firewall itself could be created and configured like this description by Pfsense: [How to install Firewall Pfsense Virtual on VMWare](https://techbast.com/2019/05/pfsense-how-to-install-firewall-pfsense-virtual-on-vmware.html). 
+
 ## Reference
 
 Microsoft Docs: [Failover Clustering and Always On Availability Groups](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server)

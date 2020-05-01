@@ -6,23 +6,79 @@ The sandbox is based on a SQL Server Availability Group (AG) build on Windows Se
 
 The entire infrastruture is build in VMware Workstation Pro. this includes not only machines but also network, provisioning and configurations.
 
+## Network
+
 A virtual network is defined as Host-only to isolate the sandbox from the internet.
+
+DNS server is installed on the AD DC server. Usually a DNS server is build on a seperate server or is in a specialized appliance box but as this is a sandbox this is an acceptable shortcut - for now.
+
+### ToDo : Computers in DNS
+
+All computers registered in DNS som that all nodes can be reached by FQDN.
+
+### ToDo : DNS server
+
+DNS on a dedicated server.
+
+## Windows Server
+
+### SQLAdmin folder
+
+Name: #sqladmin
+
+Will by default sort in Explorer be in top of list.
+
+ToDo : Environmental variable (SQLAdmin)
+
+### ToDo : Local Description
+
+Registry Key (Description); HKLM\SOFTWARE\SQLADMIN
+
+### ToDo : Rename Administrator
+
+Rename default Administrator user. Security measure...
 
 ## Active Directory
 
-To bind the resources of the cluster together a Active Directory (AD) domain is needed. To host this AD domain at Domain Controller is build on windows Server. The same server host the required DNS server. Usually a DNS server is build on a seperate server or is in a specialized appliance box but as this is a sandbox this is an acceptable shortcut - for now.
+To bind the resources of the cluster together a Active Directory (AD) domain is needed. To host this AD domain at Domain Controller is build on windows Server. The same server host the required DNS server.
 
-## Privileged Access Machine
+### ToDo : OU structure
+
+## Workstation
 
 Windows 10 workstation to handle AD, SQL Server and everything else in the sandbox. This computer will have the necessary tools installed like RSAT, SSMS and editor.
+
+### ToDo : Privileged Access Machine
 
 ## Database servers
 
 SQL Server database servers installed with Database Engine to implement the three roles in the sandbox AG.
 
+One service account is used for all SQL Server komponents on all servers. This is not compliant or best practice but it will work in the first iteration of this sandbox.
+
+### ToDo : Drives
+
+* (SCSI?)
+* System (C); GPT, NTFS, 4 KB allocation unit, 64 GB
+* Page & Windows dump (W); GPT, ReFS, default-4 KB, 64 GB
+* Program (P); GPT, ReFS, default-4 KB, 64 GB
+  * Instance Root Dir
+  * Shared Feature Dir
+  * Shared Feature Dir (x86)
+  * Data root dir
+* MSSQL Data (D); GPT, ReFS, 64 KB allocation unit, 64 GB
+  * Errorlog
+* MSSQL Translog (L); GPT, ReFS, 64 KB allocation unit, 64 GB
+* MSSQL tempdb (T); GPT, ReFS, 64 KB allocation unit, 64 GB
+* MSSQL backup (U); GPT, ReFS, 64 KB allocation unit, 128 GB
+
+## ToDo : Managed Service Accounts
+
+gMSA. Different service accounts on each server and for each component.
+
 ## Availability Group
 
-(Seperate virtual net adaptor for replication)
+### ToDo : Seperate virtual net adaptor for replication
 
 ## Security
 

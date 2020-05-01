@@ -77,7 +77,7 @@ While the machine has access to the internet:
     * Secondary DNS (IP): 192.168.42.1 (the vmnet)
     * Subnet Mask: 255.255.255.0
     * Default Gateway (IP): None (host-only)
-    * `Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses ('192.168.42.10','192.168.42.1') -PassThru`
+    * `Set-DnsClientServerAddress -InterfaceIndex <ifIndex> -ServerAddresses ('192.168.42.10','192.168.42.1') -PassThru`
 1) Check network configuration
     * `ipconfig -all`
 1) Change time zone to UTC

@@ -5,7 +5,7 @@ Build a Availability Group sandbox with three replica. One Primary replica, one 
 
 At first this will be a rather manual process, but it is my intention to automate as much as I can figure out.
 
-The architecture of this sandbox is in the document [Availability Group Sandbox Architecture](SqlAgSandboxArchitecture.md).
+The architecture of this sandbox is in the document [Availability Group Sandbox Architecture](Architecture.md).
 
 ## Infrastructure
 
@@ -88,12 +88,11 @@ See details in the following sections.
     * Show hidden devices in Device Manager
     * Uninstall Intel 82574L Gigabit Network Connection device
 1) Configure Internet Protocol Version 4 properties to static network definition
-    * ? Start PowerShell:
-    * ? `Get-NetIPInterface -AddressFamily IPv4`
-    * ? Get ifIndex of InterfaceAlias Ethernet42 (here it is 6)
-    * ? `Set-NetIPInterface -InterfaceIndex 6 -Dhcp Disabled`
-    * ? `New-NetIPAddress -InterfaceIndex 6 -AddressFamily IPv4 -IPAddress '192.168.42.10' -PrefixLength 24 -DefaultGateway ''`
-    * ? `Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses "192.168.42.10" -PassThru`
+    * `Get-NetIPInterface -AddressFamily IPv4`
+    * Get ifIndex of InterfaceAlias Ethernet42 (here it is 6)
+    * `Set-NetIPInterface -InterfaceIndex 6 -Dhcp Disabled`
+    * `New-NetIPAddress -InterfaceIndex 6 -AddressFamily IPv4 -IPAddress '192.168.42.10' -PrefixLength 24`
+    * `Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses "192.168.42.10" -PassThru`
     * This must be done after changing network adapter as the configuration is assigned the adapter
 1) Configure DNS
     * Primary DNS (IP): 192.168.42.10 (this host)
@@ -175,7 +174,6 @@ See document ([link](DatabaseServers.md)).
 
 * AG Name: 
 * Listener: 
-
-[Troubleshooting an AG Failure](https://www.joshthecoder.com/2018/12/03/always-run-rhs-in-separate-process.html)
+* Sample database: AdventureWorks
 
 1) Configure Quorum Voting

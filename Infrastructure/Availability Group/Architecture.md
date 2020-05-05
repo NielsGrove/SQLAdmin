@@ -80,9 +80,19 @@ gMSA. Different service accounts on each server and for each component.
 
 ### ToDo : Seperate virtual net adaptor for replication
 
+### ToDo : Kerberos authentication on SQL Server Availability Group replication
+
 ## Security
 
 Initially alle machines are installed dy defaults but the intention is to harden the machines to the references and tune them to resilience, scalability and security.
+
+### ToDo : DoD DISA STIG compliance
+
+Compliance with official reference(-s) on Windows Server, PAM, SQL Server etc.
+
+### ToDo : BitLocker on all drives
+
+### ToDo : SQL Server Transparent Data Encryption (TDE)
 
 ### ToDo : Internet access with firewall
 

@@ -12,21 +12,14 @@ Full Clone.
 While the machine has access to the internet:
 
 1) Start VM
-1) Install latest PowerShell (7+)
-1) Change drive letter on CD-ROM from D to X (xternal)
-1) Configure Print Spooler service
-    * Start PowerShell as administrator (Elevate with PAM00\LocalNiels):
-    * `Stop-Service -Name 'spooler'`
-    * `Set-Service -Name 'spooler' -StartupType 'Disabled'`
-1) Create admin folder
-    * `New-Item -Path 'C:\' -Name '#sqladmin' -ItemType 'Directory'`
-    * (from VMware host: `vmrun createDirectoryInGuest ...`)
+1) Run PowerShell script `PreConfigure.ps1` As Administrator.
 1) Install RSAT
     * Add Windows Capability:
     * `Get-WindowsCapability -Online | Where-Object { $_.Name -like "Rsat.Dns.Tools*" }`
     * See the full name of the capability. Notice the version info in the end of the name
     * `Add-WindowsCapability -Online -Name Rsat.Dns.Tools~~~~0.0.1.0` in this case
     * ERROR when off internet: `Add-WindowsCapability : Add-WindowsCapability failed. Error code = 0x8024402c`
+    * `Add-WindowsFeature RSAT-Clustering-PowerShell`
     * Check installation
     * `Get-WindowsCapability -Online | Where-Object { $_.Name -like "Rsat.Dns.Tools*" }`
 1) Install latest SSMS

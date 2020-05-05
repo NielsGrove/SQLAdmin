@@ -25,16 +25,13 @@ Full Clone
 
 ### Pre-configuration
 
-While the machine has access to the internet:
+While the VM has access to the internet:
 
 1) Start VM
 1) Change drive letter on CD-ROM from D to X (xternal)
 1) Change time zone to UTC
-1) Install latest PowerShell (7+)
-    * Check GitHub [PowerShell](https://github.com/PowerShell/PowerShell) for latest LTS
-    * ? Enable PowerShell Remoting ?
+1) `Import-Module FailoverClusters`
 1) Stop and disable Print Spooler service
-    * Start PowerShell as administrator:
     * `Stop-Service -Name 'spooler'`
     * `Set-Service -Name 'spooler' -StartupType 'Disabled'`
 1) Create sqladmin folder
@@ -50,7 +47,7 @@ While the machine has access to the internet:
 1) Configure VM
     * CPU: 4 vSockets each 1 vCore
     * Memory: 8 GiB
-    * Network: VMnet13
+    * Network: VMnet13 (this will take the VM off the internet)
 1) Configure vmxnet3 paravirtualized network
 1) Start VM
 1) sysprep

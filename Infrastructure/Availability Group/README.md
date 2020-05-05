@@ -12,7 +12,7 @@ The architecture of this sandbox is in the document [Availability Group Sandbox 
 * Active Directory Domain Controller hosting domain.
 * Databaseservers, three nodes in domain.
 * Witness file server in domain.
-* Privileged Access Machine (PAM) workstation in domain.
+* Workstation in domain.
 
 All computers are virtual running on VMware Workstation Pro. Each computer is based on a full clone of an existing vm that is updated but with minimum configuration.
 
@@ -26,7 +26,7 @@ This is a simple overview of the provision process for the AG-sandbox.
 
 1) Create virtual network in VMware Workstation Pro.
 1) Create AD domain with DC VM.
-1) Create PAM workstation VM.
+1) Create workstation VM.
 1) Create database server VMs.
 1) Create witness file share.
 1) Create cluster.
@@ -45,9 +45,9 @@ See details in the following sections.
 
 See document ([link](ActiveDirectory.md)) on building Active Directory (AD) domain with Domain Controller (DC)
 
-## Create PAM Workstation
+## Create Workstation
 
-See document ([link](Workstation.md)).
+See document ([link](Workstation.md)) on building and configuring a workstation.
 
 ## Create Fileserver
 

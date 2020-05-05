@@ -11,19 +11,23 @@ Domain Controller:
 
 Full Clone.
 
-(From VMware host: `vmrun clone ...`)
+1) `Set-Location "${env:ProgramFiles(x86)}\VMware\VMware Workstation"`
+1) `.\vmrun.exe clone -T ws "W:\Virtual Machines\Windows Server 2019 Std Ed\Windows Server 2019 Std Ed.vmx" "W:\Virtual Machines\DC00\DC00.wmx" full -cloneName=DC00`
+
+The clone VM will not show in VMware Workstation GUI, but a scan (File > Scan for Virtual Machines...) will make it present.
 
 ## Pre-Configure Computer
 
 1) Start VM
-1) Run PowerShell script `PreConfigure.ps1` As Administrator
-1) Shut down VM: `Stop-Computer -ComputerName localhost`
+1) Run script `PreConfigure.ps1` as Administrator
+1) Shut down VM
+    * `Stop-Computer -ComputerName localhost`
 
 ## Configure Computer
 
 1) Configure VM
     * CPU: 2 vSockets each 1 vCore
-    * Memory: 2 GB
+    * Memory: 4 GB
     * Network: VMnet13
     * (from VMware host: `vmrun setNetworkAdapter ...`)
 1) Configure paravirtualized network ([vmxnet3](https://sqladm.blogspot.com/2019/03/vmxnet3-network-adapter.html)) adapter

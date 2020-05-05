@@ -25,8 +25,8 @@ Many features only works with PowerShell 5 so PowerShell 7+ is not required and 
 This is a simple overview of the provision process for the AG-sandbox.
 
 1) Create virtual network in VMware Workstation Pro.
-1) Create DC VM.
-1) Create PAM VM.
+1) Create AD domain with DC VM.
+1) Create PAM workstation VM.
 1) Create database server VMs.
 1) Create witness file share.
 1) Create cluster.
@@ -67,13 +67,28 @@ See document ([link](DatabaseServers.md)).
 
 ## Create Cluster
 
-* Cluster Name: Silicium
+* Cluster Name: Cluster00
+
+1) Add all database servers to cluster
+1) Add fileshare to cluster as quorom
 
 ## Create Availability Group
 
-* AG Name: 
-* Listener Name: 
-* Listener IP:
+* AG Name: AG00
+* Listener Name: Listener00
+* Listener IP: 192.168.42.42
 * Sample database: AdventureWorks
 
 1) Configure Quorum Voting
+
+## Cleanup
+
+If you want to cleanup the sandbox completely or just in part there are limits to the tool vmrun like you can't delete a VM:
+
+> "... unfortunately the unregister command doesn't work for VMware Workstation and is not supported. You will have to manually remove the VM from inventory before running the DeleteVM command."
+
+VMware Communities: ['vmrun deleteVM' failed with error](https://communities.vmware.com/thread/560093)
+
+Unfortunately it looks like vmrun is best on VMware Fusion (Mac) where I run VMware Workstation.
+
+The other tool in the VMware REST API is rather troublesom to use on Windows 10. It looks like the authentication can break with a minor Windows update.

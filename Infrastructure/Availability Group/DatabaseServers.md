@@ -28,15 +28,10 @@ Full Clone
 While the VM has access to the internet:
 
 1) Start VM
-1) Change drive letter on CD-ROM from D to X (xternal)
-1) Change time zone to UTC
+1) Run PowerShell script `PreConfigure.ps1` as Administrator.
+1) Install Failover Clustering Feature
+    * `(TBD)`
 1) `Import-Module FailoverClusters`
-1) Stop and disable Print Spooler service
-    * `Stop-Service -Name 'spooler'`
-    * `Set-Service -Name 'spooler' -StartupType 'Disabled'`
-1) Create sqladmin folder
-    * `New-Item -Path 'C:\' -Name '#sqladmin' -ItemType 'Directory'`
-    * (from VMware host: `vmrun createDirectoryInGuest ...`)
 1) Copy SQL Server installation sets to VM sqladmin-folder
     * Latest CU
     * OHMS script files

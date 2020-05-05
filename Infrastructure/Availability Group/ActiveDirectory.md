@@ -42,7 +42,7 @@ Full Clone.
 1) Check that Windows Server is activated
 1) Rename computer
     * `Rename-Computer -NewName 'DC00' -Restart`
-    * Server will reboot
+    * Server will restart
 1) Configure vmxnet3 Ethernet Adapter
     * Power Management: Disable "Allow computer to turn off device to save power"
     * Rename adapter "Ethernet42"
@@ -52,38 +52,34 @@ Full Clone.
 1) Configure Internet Protocol Version 4 properties to static network definition
     * `Get-NetIPInterface -AddressFamily IPv4`
     * Get ifIndex of InterfaceAlias Ethernet42 (here it is 6)
-    * `Set-NetIPInterface -InterfaceIndex 6 -Dhcp Disabled`
-    * `New-NetIPAddress -InterfaceIndex 6 -AddressFamily IPv4 -IPAddress '192.168.42.10' -PrefixLength 24`
-    * `Set-DnsClientServerAddress -InterfaceIndex 6 -ServerAddresses "192.168.42.10" -PassThru`
+    * `Set-NetIPInterface -InterfaceIndex <ifIndex> -Dhcp Disabled`
+    * `New-NetIPAddress -InterfaceIndex <ifIndex> -AddressFamily IPv4 -IPAddress '192.168.42.10' -PrefixLength 24`
     * This must be done after changing network adapter as the configuration is assigned the adapter
 1) Configure DNS
     * Primary DNS (IP): 192.168.42.10 (this host)
     * Secondary DNS (IP): 192.168.42.1 (the vmnet)
     * Subnet Mask: 255.255.255.0
     * Default Gateway (IP): None (host-only)
+    * `Set-DnsClientServerAddress -InterfaceIndex <ifIndex> -ServerAddresses ('192.168.42.10','192.168.42.1') -PassThru`
 1) Check network configuration
     * Start PowerShell:
     * `ipconfig -all`
 1) Change time zone to UTC with no Daylight Saving
 
-### Configure Domain Controller
+## Configure Domain Controller
 
 1) Set password on Administrator user if prompted...
 1) Add Windows Server roles with all features and tools:
     * Active Directory Domain Services (AD DS)
     * DNS Server
-    * Start PowerShell as Administrator:
     * `Install-WindowsFeature –Name AD-Domain-Services -IncludeManagementTools`
     * `Install-WindowsFeature -Name DNS -IncludeManagementTools`
 1) Promote server to Domain Controller
-    * Use Server Manager or...
-    * Start PowerShell as Administrator:
     * `Install-ADDSForest -DomainName 'sqlbacon.lan'` (New forrest)
     * NB: `dcpromo` does not work anymore!
 1) Configure domain controller capabilities
     * Functional Level: Windows Server 2016
     * Domain Name System (DNS) server and Global Catalog (GC) on the domain
-    * Start PowerShell as Administrator:
     * `$Forest = Get-ADForest`
     * `Set-ADForestMode -Identity $Forest -Server $Forest.SchemaMaster -ForestMode Windows2016Forest`
 1) Set Directory Services Restore Mode (DSRM) password
@@ -92,7 +88,6 @@ Full Clone.
     * Do not delegate
 1) Accept the NETBIOS name "SQLBACON"
 1) Accept default folders
-    * ? ToDo: Create GPT partition with ReFS drive for higher resilience ?
 1) Start AD DS installation
     * Server will reboot
 1) Change password on administrator SuperNiels when prompted (BaconGuf42)

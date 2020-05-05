@@ -16,7 +16,7 @@ else {
 }
 
 'Change drive letter on CD-ROM from D to X (xternal)...' # | Write-Verbose
-# CIM ???
+#ERROR : Get-CimInstance -ClassName Win32_CDROMDrive | Set-CimInstance -Arguments @{Drive='X'} -ErrorAction 'Stop'
 
 'Configure Print Spooler service...'
 Stop-Service -Name 'spooler'
@@ -25,3 +25,9 @@ Set-Service -Name 'spooler' -StartupType 'Disabled'
 'Create admin-folder...'
 New-Item -Path 'C:\' -Name '#sqladmin' -ItemType 'Directory'
 # (From VMware host: `vmrun createDirectoryInGuest ...`)
+
+'Change time zone to UTC...'
+Set-TimeZone -Name 'UTC'
+[System.TimeZoneInfo]$TimeZone = Get-TimeZone
+if ($TimeZone.Id -ceq 'UTC') { 'OK - Time Zone' }
+else { throw 'Wrong Time Zone - check script.' }

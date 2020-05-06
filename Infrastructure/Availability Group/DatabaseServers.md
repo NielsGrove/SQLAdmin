@@ -65,6 +65,7 @@ While the VM has access to the internet:
     * Uninstall Intel 82574L Gigabit Network Connection device
 1) Configure network: IP
     * Enable Receive Side Scaling (RSS): `Enable-NetAdapterRss -Name 'Ethernet42'`
+      * Set queues and processors to the number of logical cores.
     * `Get-NetIPInterface -AddressFamily IPv4`
     * Get ifIndex of InterfaceAlias Ethernet42 (here it is 6)
     * `Set-NetIPInterface -InterfaceIndex 6 -Dhcp Disabled`

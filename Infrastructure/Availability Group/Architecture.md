@@ -44,7 +44,7 @@ To bind the resources of the cluster together a Active Directory (AD) domain is 
 
 ### ToDo : Create drive for database
 
-Create GPT partition with ReFS drive for higher resilience.
+Create GPT partition with ReFS volume for higher resilience.
 
 ### ToDo : OU structure
 
@@ -83,6 +83,8 @@ gMSA. Different service accounts on each server and for each component.
 ## Availability Group
 
 ### ToDo : Seperate virtual net adaptor for replication
+
+At first with no DNS, but this could change when replication is set up with Kerberos authentication.
 
 ### ToDo : Kerberos authentication on SQL Server Availability Group replication
 

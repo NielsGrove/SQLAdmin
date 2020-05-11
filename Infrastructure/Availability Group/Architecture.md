@@ -38,6 +38,10 @@ Registry Key (Description); HKLM\SOFTWARE\SQLADMIN
 
 Rename default Administrator user. Security measure...
 
+### ToDo : Local firewall
+
+Configure local firewall with zero-trust.
+
 ## Active Directory
 
 To bind the resources of the cluster together a Active Directory (AD) domain is needed. To host this AD domain at Domain Controller is build on windows Server. The same server host the required DNS server.

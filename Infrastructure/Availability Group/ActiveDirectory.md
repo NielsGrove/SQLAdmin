@@ -7,15 +7,6 @@ Domain Controller:
 * User Name: SuperNiels (user password: )
 * Domain Name: sqlbacon.lan
 
-## Clone VM
-
-Full Clone.
-
-1) `Set-Location "${env:ProgramFiles(x86)}\VMware\VMware Workstation"`
-1) `.\vmrun.exe clone -T ws "W:\Virtual Machines\Windows Server 2019 Std Ed\Windows Server 2019 Std Ed.vmx" "W:\Virtual Machines\DC00\DC00.wmx" full -cloneName=DC00`
-
-The clone VM will not show in VMware Workstation GUI, but a scan (File > Scan for Virtual Machines...) will make it present.
-
 ## Pre-Configure Computer
 
 1) Start VM
@@ -98,3 +89,7 @@ The clone VM will not show in VMware Workstation GUI, but a scan (File > Scan fo
 1) Check Domain Controller
     * Server Manager shows AD DS and DNS
     * System: Computer is in domain
+
+## Create Accounts
+
+* Account Name: SVCSQL@sqlbacon.lan

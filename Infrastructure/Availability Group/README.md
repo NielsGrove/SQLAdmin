@@ -34,7 +34,11 @@ This is a simple overview of the provision process for the AG-sandbox.
 
 See details in the following sections.
 
-## Create virtual network
+To create the initial sandbox with virtual network and basic virtual machines run the script [Sandbox.ps1](Sandbox.ps1).
+
+The clone VM will not show in VMware Workstation GUI, but a scan (File > Scan for Virtual Machines...) will make it present.
+
+## Virtual network
 
 * Custom network: VMnet13, host-only
 * Subnet IP: 192.168.42.0
@@ -51,7 +55,6 @@ See document ([link](Workstation.md)) on building and configuring a workstation.
 
 ## Create Fileserver
 
-1) Clone VM
 1) Configure VM
 1) Configure vmxnet paravirtualized network
 1) Add disk(-s) for file share

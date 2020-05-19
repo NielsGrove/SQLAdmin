@@ -19,10 +19,6 @@
 
 ## General setup
 
-### Clone VM
-
-Full Clone
-
 ### Pre-configuration
 
 While the VM has access to the internet:

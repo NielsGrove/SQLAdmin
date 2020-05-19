@@ -10,7 +10,7 @@ The architecture of this sandbox is in the document [Availability Group Sandbox 
 ## Infrastructure
 
 * Active Directory Domain Controller hosting domain.
-* Databaseservers, three nodes in domain.
+* Database servers, three nodes in domain.
 * Witness file server in domain.
 * Workstation in domain.
 
@@ -34,7 +34,21 @@ This is a simple overview of the provision process for the AG-sandbox.
 
 See details in the following sections.
 
-To create the initial sandbox with virtual network and basic virtual machines run the script [Sandbox.ps1](Sandbox.ps1).
+To create the initial sandbox with virtual network and basic virtual machines run the script [Sandbox.ps1](Sandbox.ps1). The script below is a raw sketch that does not work due to PowerShell interpretation of vmrun parameter syntax.
+
+```powershell
+Set-Location -LiteralPath 'C:\Program Files (x86)\VMware\VMware Workstation\'
+
+.\vmrun.exe clone -T ws "W:\Virtual Machines\WinSrv2019Std\WinSrv2019Std.vmx" "W:\Virtual Machines\DC00\DC00.vmx" full -cloneName=DC00
+
+.\vmrun.exe clone -T ws "W:\Virtual Machines\Windows 10 Pro\Windows 10 Pro.vmx" "W:\Virtual Machines\WS00\WS00.vmx" full -cloneName=WS00
+
+.\vmrun.exe clone -T ws "W:\Virtual Machines\WinSrv2019Std\WinSrv2019Std.vmx" "W:\Virtual Machines\FS00\FS00.vmx" full -cloneName=FS00
+
+.\vmrun.exe clone -T ws "W:\Virtual Machines\WinSrv2019Std\WinSrv2019Std.vmx" "W:\Virtual Machines\SQL00\SQL00.vmx" full -cloneName=SQL00
+.\vmrun.exe clone -T ws "W:\Virtual Machines\WinSrv2019Std\WinSrv2019Std.vmx" "W:\Virtual Machines\SQL00\SQL01.vmx" full -cloneName=SQL01
+.\vmrun.exe clone -T ws "W:\Virtual Machines\WinSrv2019Std\WinSrv2019Std.vmx" "W:\Virtual Machines\SQL00\SQL02.vmx" full -cloneName=SQL02
+```
 
 The clone VM will not show in VMware Workstation GUI, but a scan (File > Scan for Virtual Machines...) will make it present.
 

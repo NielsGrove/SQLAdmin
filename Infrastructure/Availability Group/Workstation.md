@@ -1,6 +1,6 @@
 # Workstation (PAM)
 
-* Computer Name: PAM00
+* Computer Name: WS00
 * IP: 192.168.42.20
 
 ## Clone VM

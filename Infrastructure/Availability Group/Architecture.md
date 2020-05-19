@@ -30,6 +30,10 @@ Will by default sort in Explorer be in top of list.
 
 ToDo : Environmental variable (SQLAdmin)
 
+### ToDo : sysprep answer file
+
+Create sysprep answer file for each VM. Maybe there should be created a build script for each answer file as the format is XML and this format is somewhat complex and then error-prone.
+
 ### ToDo : Local Description
 
 Registry Key (Description); HKLM\SOFTWARE\SQLADMIN

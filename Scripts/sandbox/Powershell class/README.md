@@ -34,9 +34,15 @@ class Person {
 }
 ```
 
+Definition in embedded C#...
+
+With the CmdLet [`Add-Type`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/add-type) you can add a .NET class to a PowerShell session. Or you can use the CmdLet to define a class with embedded C#.
+
+
+
 ### Attribute
 
-Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like `int` or `string` are in really classes in .NET. You should read the documentation on "simple types" in .NET where you can learn a lot about the basic ideas behind .NET.
+Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like `int` or `string` are in really classes in .NET. You should read the documentation on "simple types" [Built-in types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types) in .NET / C# where you can learn a lot about the basic ideas behind .NET.
 
 ### $this (automatic variable)
 
@@ -46,9 +52,16 @@ The keyword `$this` is a reference the the given object in the class definition.
 
 Methods handle the functionality of the object. Default functionality like `ToString()` can be overloaded and given a custom implementation in the class.
 
+The only output from a method is from the return statement. `Write-Output` then gives nothing, but other CmdLets that does not give a direct output like `Write-Host`, `Write-Debug`, `Write-Warning` or `Write-Error` can give output to the console. The method signature can be regarded as a contract on the output. Only the output from the return statement will go into the execution pipeline.
+(https://stackoverflow.com/questions/52757670/why-does-write-output-not-work-inside-a-powershell-class-method)
+
 ### Constructor
 
+The class constructor can be the default constructor or a parametrized constructor or both. In any case the constructor is named like the class and has a structure like a method.
+
 ### Deconstructor
+
+De deconstructor is always named `Dispose()` and never takes parameters.
 
 Inheritance - complex types
 
@@ -58,13 +71,31 @@ PowerShell does not have a structure to store a given class in a individual file
 
 This is not a default construction.
 
+## Class interface
+
 ## Create a object of a PowerShell class
+
+A object cal be created with the PowerShell CmdLet `New-Object` or by calling the implicit static method `New()`.
+
+```powershell
+$Person10 = New-Object Person
+$Person11 = New-Object Person 'Alice', 'McDonald'
+
+$Person20 = [Person]::New()
+$Person21 = [Person]::New('Joe', 'McDonald')
+```
+
+Also you could cast a hash table on the default constructor. (Example...)
 
 ### New- CmdLet
 
-You could create a `New-\<class\>` CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
+You could create a `New-\<class\>` CmdLet wrapper by a advanced function to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell `New-` CmdLet.
+
+Also such a function in a PowerShell module will make it possible the create a object from a stript using the module.
 
 ## Use objects of PowerShell classes
+
+Piping to a object...
 
 ## Static elements
 

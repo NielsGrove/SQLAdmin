@@ -56,7 +56,7 @@ Class attributes hold object values. Attributes can be more complex like arrays 
 
 ### $this (automatic variable)
 
-The keyword `$this` is a reference the the given object in the class definition. Can be used in the definition of class methods
+The keyword `$this` is a reference to the given object in the class definition. Can be used in the definition of class methods
 
 ### Method
 

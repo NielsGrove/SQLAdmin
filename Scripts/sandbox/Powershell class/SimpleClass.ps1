@@ -20,4 +20,11 @@ $Simple1.CallSign = 'Average'
 $Simple1.Age = 42
 
 $Simple1 | Format-Table
+
+$Simple2 = New-Object -TypeName Simple
+$Simple2.Name = 'McDonald'
+$Simple2.CallSign = 'Old'
+$Simple2.Age = 123
+
+$Simple2 | Format-Table *
 #endregion Simple

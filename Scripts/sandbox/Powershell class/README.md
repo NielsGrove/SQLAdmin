@@ -1,5 +1,7 @@
 # PowerShell Class structure
 
+[Class vs Object](#Class-vs-Object)
+
 From the beginning af PowerShell we had the possibility to create custom objects, and after the object creation it was possible to add attributes and methods to the object. With PowerShell 5 we also have the possibility to create custom classes. This is a personal study on the subject so do not consider the text or the examples complete of perfect - or even correct.
 
 A custom class is a class defined in PowerShell with the class structure as described in the standard documentation [about_Classes](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes). The custom class can be rather simple or extremely complex. In the last case you should consider to implement your functionality in C#. In the most extreme case where you want to control every physical detail or have high requirements on performance you could consider to code the entire solution in C++.

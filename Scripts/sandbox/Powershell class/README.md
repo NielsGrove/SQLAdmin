@@ -35,11 +35,28 @@ class Person {
 ```
 
 ### Attribute
+
 Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like int or string are in really classes in .NET. You should read the documentation on "simple types" in .NET where you can learn a lot about the basic ideas behind .NET.
+
+### $this (automatic variable)
+
+The keyword $this is a reference the the given object in the class definition. Can be used in the definition of class methods
+
+### Method
+
+Methods handle the functionality of the object. Default functionality like ToString() can be overloaded and given a custom implementation in the class.
+
+### Constructor
+
+### Deconstructor
 
 Inheritance - complex types
 
 ## Create a object of a PowerShell class
+
+### New- CmdLet
+
+You could create a New-<class> CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
 
 
 ## Use objects of PowerShell classes
@@ -47,3 +64,13 @@ Inheritance - complex types
 ## Static elements
 
 A static element in a class makes the class not thread safe. This is not a real problem in PowerShell as most activities are single-threaded. But if you plan to to use the PowerShell code as a prototype to a C# or another thread-friendly language then you should be aware of the dragon.
+
+## Reference
+
+Microsoft Docs: "[About_Classes](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes)"
+
+"[Functional PowerShell with Classes](https://medium.com/faun/functional-powershell-with-classes-820c8e9acd8f)"
+
+"[Powershell Classes & Concepts](https://xainey.github.io/2016/powershell-classes-and-concepts/)"
+
+[Introduction to PowerShell Classes](https://overpoweredshell.com/Introduction-to-PowerShell-Classes/)

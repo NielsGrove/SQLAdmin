@@ -36,15 +36,15 @@ class Person {
 
 ### Attribute
 
-Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like int or string are in really classes in .NET. You should read the documentation on "simple types" in .NET where you can learn a lot about the basic ideas behind .NET.
+Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like `int` or `string` are in really classes in .NET. You should read the documentation on "simple types" in .NET where you can learn a lot about the basic ideas behind .NET.
 
 ### $this (automatic variable)
 
-The keyword $this is a reference the the given object in the class definition. Can be used in the definition of class methods
+The keyword `$this` is a reference the the given object in the class definition. Can be used in the definition of class methods
 
 ### Method
 
-Methods handle the functionality of the object. Default functionality like ToString() can be overloaded and given a custom implementation in the class.
+Methods handle the functionality of the object. Default functionality like `ToString()` can be overloaded and given a custom implementation in the class.
 
 ### Constructor
 
@@ -62,7 +62,7 @@ This is not a default construction.
 
 ### New- CmdLet
 
-You could create a New-\<class\> CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
+You could create a `New-\<class\>` CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
 
 ## Use objects of PowerShell classes
 

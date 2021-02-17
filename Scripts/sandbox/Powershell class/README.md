@@ -62,7 +62,7 @@ This is not a default construction.
 
 ### New- CmdLet
 
-You could create a New-`<class`> CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
+You could create a New-\<class\> CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
 
 ## Use objects of PowerShell classes
 

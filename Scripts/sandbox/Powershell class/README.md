@@ -2,6 +2,11 @@
 
 1. [Class vs Object](#Class-vs-Object)
 1. [Define a PowerShell class](#Define-a-PowerShell-class)
+1. [Class interface](#Class-interface)
+1. [Create a object of a PowerShell class](#Create-a-object-of-a-PowerShell-class)
+1. [Use objects of PowerShell classes](#Use-objects-of-PowerShell-classes)
+1. [Static elements](#Static-elements)
+1. [Reference](#Reference)
 
 From the beginning af PowerShell we had the possibility to create custom objects, and after the object creation it was possible to add attributes and methods to the object. With PowerShell 5 we also have the possibility to create custom classes. This is a personal study on the subject so do not consider the text or the examples complete of perfect - or even correct.
 

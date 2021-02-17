@@ -4,7 +4,7 @@ From the beginning af PowerShell we had the possibility to create custom objects
 
 A custom class is a class defined in PowerShell with the class structure as described in the standard documentation [about_Classes](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes). The custom class can be rather simple or extremely complex. In the last case you should consider to implement your functionality in C#. In the most extreme case where you want to control every physical detail or have high requirements on performance you could consider to code the entire solution in C++.
 
-The documentation is not a tutorial - as this text is either - and you should prepare yourself to spend some time on reading materials and experimenting with code.
+The documentation is not a tutorial - as this text is neither - and you should prepare yourself to spend some time on reading materials and experimenting with code.
 
 ## Class vs Object
 
@@ -52,12 +52,17 @@ Methods handle the functionality of the object. Default functionality like ToStr
 
 Inheritance - complex types
 
+### Class definition file
+
+PowerShell does not have a structure to store a given class in a individual file like Java. You could place the class definition in a custom file and dot-include it in the script or module file. This would be a non-standard solution and maybe some kind of over-engineering.
+
+This is not a default construction.
+
 ## Create a object of a PowerShell class
 
 ### New- CmdLet
 
-You could create a New-<class> CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
-
+You could create a New-`<class`> CmdLet wrapper to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell New-CmdLet.
 
 ## Use objects of PowerShell classes
 

@@ -34,11 +34,9 @@ class Person {
 }
 ```
 
-Definition in embedded C#...
+### Definition in embedded C\#
 
-With the CmdLet [`Add-Type`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/add-type) you can add a .NET class to a PowerShell session. Or you can use the CmdLet to define a class with embedded C#.
-
-
+With the CmdLet [`Add-Type`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/add-type) you can add a .NET class to a PowerShell session. Or you can use the CmdLet to define a class with embedded C#. There is a nice example in the `Add-Type` documentation. But doing it this way does it very difficult to debug the script. On the other hand this solution could be usefull when you already have a class defined i C# and want a simple file structure without dll-file(s).
 
 ### Attribute
 

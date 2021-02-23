@@ -87,6 +87,8 @@ PowerShell does not have a structure to store a given class in a individual file
 
 This is not a default construction.
 
+One example on this construction is in the class definition file `Example.class.ps1` and the script file `ExampleUsage.ps1` using the defined class to create three objects.
+
 ## Class interface
 
 ## Create a object of a PowerShell class

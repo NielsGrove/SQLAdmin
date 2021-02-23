@@ -27,4 +27,7 @@ $Simple2.CallSign = 'Old'
 $Simple2.Age = 123
 
 $Simple2 | Format-Table *
+
+$Simples = @($Simple1, $Simple2)
+$Simples | Format-Table
 #endregion Simple

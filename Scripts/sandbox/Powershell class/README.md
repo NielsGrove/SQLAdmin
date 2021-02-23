@@ -54,9 +54,13 @@ With the CmdLet [`Add-Type`](https://docs.microsoft.com/en-us/powershell/module/
 
 Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like `int` or `string` are in really classes in .NET. You should read the documentation on "simple types" [Built-in types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types) in .NET / C# where you can learn a lot about the basic ideas behind .NET.
 
+**Read-Only Attribute** is relevant as a PowerShell class can not be defined with operators like `Set` and `Get`. By setting one attribute it can be relevant at the same time to change the value of another attribute. This could be one attribute `SizeB` that holds the size of a storage area in Bytes and another attribute `SizeGB` holds the size of the same storage area but in GigaBytes, so when updating `SizeB` the value of `SizeGB` should be updated in the same operation. And It should not be possible at all to change the value of `SizeGB` direct.
+
+[PowerShell Classes with readonly properties](https://ocram85.com/2017-07-19-ReadOnly-Class-Properties/)
+
 ### $this (automatic variable)
 
-The keyword `$this` is a reference to the given object in the class definition. Can be used in the definition of class methods
+The keyword `$this` is a reference to the given object in the class definition. Can be used in the definition of class methods.
 
 ### Method
 

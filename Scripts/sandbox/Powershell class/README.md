@@ -62,6 +62,8 @@ The keyword `$this` is a reference to the given object in the class definition. 
 
 Methods handle the functionality of the object. Default functionality like `ToString()` can be overloaded and given a custom implementation in the class.
 
+There can not be defined a method with the same name as a attribute. This actually makes sense. Also a method should be named with a verb to keep things clear.
+
 The only output from a method is from the return statement. `Write-Output` then gives nothing, but other CmdLets that does not give a direct output like `Write-Host`, `Write-Debug`, `Write-Warning` or `Write-Error` can give output to the console. The method signature can be regarded as a contract on the output. Only the output from the return statement will go into the execution pipeline.
 (https://stackoverflow.com/questions/52757670/why-does-write-output-not-work-inside-a-powershell-class-method)
 

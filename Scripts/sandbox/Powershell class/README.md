@@ -46,6 +46,10 @@ Example on a simple class in [`SimpleClass.ps1`](https://github.com/NielsGrove/S
 
 Example on a class with full definition in [`FullClass.ps1`](https://github.com/NielsGrove/SQLAdmin/blob/master/Scripts/sandbox/Powershell%20class/FullClass.ps1).
 
+### Inheritance
+
+A simple example on association is in the script file `Association.ps1`. A very dynamic object model where each wheel on a vehicle can have individual diameter...
+
 ### Definition in embedded C\#
 
 With the CmdLet [`Add-Type`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/add-type) you can add a .NET class to a PowerShell session. Or you can use the CmdLet to define a class with embedded C#. There is a nice example in the `Add-Type` documentation. But doing it this way does it very difficult to debug the script. On the other hand this solution could be usefull when you already have a class defined i C# and want a simple file structure without dll-file(s).

@@ -50,13 +50,23 @@ Example on a class with full definition in [`FullClass.ps1`](https://github.com/
 
 A simple example on association is in the script file `Association.ps1`. A very dynamic object model where each wheel on a vehicle can have individual diameter...
 
+See more in the documentation (Inheritance in PowerShell classes)[https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.1&source=docs#inheritance-in-powershell-classes] where a more formal inheritance is used in the example.
+
+### Interface
+
+(https://stackoverflow.com/questions/32065124/can-we-implement-net-interfaces-in-powershell-scripts)
+
 ### Definition in embedded C\#
 
 With the CmdLet [`Add-Type`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/add-type) you can add a .NET class to a PowerShell session. Or you can use the CmdLet to define a class with embedded C#. There is a nice example in the `Add-Type` documentation. But doing it this way does it very difficult to debug the script. On the other hand this solution could be usefull when you already have a class defined i C# and want a simple file structure without dll-file(s).
 
+Another way is to put the C\# definition of the class in a PowerShell [here-string)[https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7.1#here-strings]. This makes it possible to use the more advanced class features of C\#
+
 ### Attribute
 
 Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like `int` or `string` are in really classes in .NET. You should read the documentation on "simple types" [Built-in types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types) in .NET / C# where you can learn a lot about the basic ideas behind .NET.
+
+**Validation** on attribute (https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.1#example-using-validation-attributes)
 
 **Read-Only Attribute** is relevant as a PowerShell class can not be defined with operators like `Set` and `Get`. By setting one attribute it can be relevant at the same time to change the value of another attribute. This could be one attribute `SizeB` that holds the size of a storage area in Bytes and another attribute `SizeGB` holds the size of the same storage area but in GigaBytes, so when updating `SizeB` the value of `SizeGB` should be updated in the same operation. And It should not be possible at all to change the value of `SizeGB` direct.
 

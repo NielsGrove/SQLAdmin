@@ -52,6 +52,8 @@ A simple example on association is in the script file `Association.ps1`. A very 
 
 See more in the documentation (Inheritance in PowerShell classes)[https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.1&source=docs#inheritance-in-powershell-classes] where a more formal inheritance is used in the example.
 
+Inheritance from a .NET class is also possible with a syntax similar to plain PowerShell class inheritance.
+
 ### Interface
 
 (https://stackoverflow.com/questions/32065124/can-we-implement-net-interfaces-in-powershell-scripts)
@@ -66,7 +68,8 @@ Another way is to put the C\# definition of the class in a PowerShell [here-stri
 
 Class attributes hold object values. Attributes can be more complex like arrays or instances of other classes. Actually "types" like `int` or `string` are in really classes in .NET. You should read the documentation on "simple types" [Built-in types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types) in .NET / C# where you can learn a lot about the basic ideas behind .NET.
 
-**Validation** on attribute (https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.1#example-using-validation-attributes)
+### Member Validation
+Validation on attribute (https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.1#example-using-validation-attributes)
 
 **Read-Only Attribute** is relevant as a PowerShell class can not be defined with operators like `Set` and `Get`. By setting one attribute it can be relevant at the same time to change the value of another attribute. This could be one attribute `SizeB` that holds the size of a storage area in Bytes and another attribute `SizeGB` holds the size of the same storage area but in GigaBytes, so when updating `SizeB` the value of `SizeGB` should be updated in the same operation. And It should not be possible at all to change the value of `SizeGB` direct.
 

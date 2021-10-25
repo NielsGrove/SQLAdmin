@@ -1,0 +1,6 @@
+{
+    "SQLAnchor" : {
+        "Server" : "(local)\\MSSQL2019",
+        "Database" : "_sqladmin"
+    }
+}

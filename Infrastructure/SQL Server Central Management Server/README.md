@@ -10,6 +10,24 @@ When adding multiple servers at once to SQL CMS there are some keys to handle. S
 
 ToDo - but start by a look at dbatools.
 
+### SMO
+
+The .NET SMO classes for Registered Servers are in the namespace [Microsoft.SqlServer.Management.Smo.RegisteredServers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.registeredservers).
+
+These are the relevant classes:
+
+- RegisteredServer
+- RegisteredServerCollection
+- RegSvrCollectionBase
+- RegSvrSmoObject
+- ServerGroup
+- ServerGroupBase
+- ServerGroupCollection
+
+### SQLServer module
+
+### dbatools
+
 ## Reference
 
 SQLAdmin blog: [Central Registrered Servers](https://sqladm.blogspot.com/2009/06/central-registrered-servers.html)

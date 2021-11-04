@@ -26,6 +26,8 @@ These are some relevant classes:
 
 ### SQLServer module
 
+(TBD)
+
 ### dbatools
 
 [Add-DbaRegServer](https://github.com/sqlcollaborative/dbatools/blob/development/functions/Add-DbaRegServer.ps1)

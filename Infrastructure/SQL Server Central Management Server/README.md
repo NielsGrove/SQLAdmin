@@ -14,15 +14,15 @@ ToDo - but start by a look at dbatools.
 
 The .NET SMO classes for Registered Servers are in the namespace [Microsoft.SqlServer.Management.Smo.RegisteredServers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.sqlserver.management.registeredservers).
 
-These are the relevant classes:
+These are some relevant classes:
 
-- RegisteredServer
-- RegisteredServerCollection
-- RegSvrCollectionBase
-- RegSvrSmoObject
-- ServerGroup
-- ServerGroupBase
-- ServerGroupCollection
+- `RegisteredServer`
+- `RegisteredServerCollection`
+- `RegSvrCollectionBase`
+- `RegSvrSmoObject`
+- `ServerGroup`
+- `ServerGroupBase`
+- `ServerGroupCollection`
 
 ### SQLServer module
 

@@ -28,11 +28,16 @@ These are some relevant classes:
 
 ### dbatools
 
+[Add-DbaRegServer](https://github.com/sqlcollaborative/dbatools/blob/development/functions/Add-DbaRegServer.ps1)
+
 ## Reference
 
 SQLAdmin blog: [Central Registrered Servers](https://sqladm.blogspot.com/2009/06/central-registrered-servers.html)
 
 dbatools: [managing central management server](https://dbatools.io/cms/)
+
+Manning: [Learn dbatools in a Month of Lunches](https://www.manning.com/books/learn-dbatools-in-a-month-of-lunches)  
+*Still in Manning Early Access Program (MEAP), but looks quite promising.*
 
 Microsoft Docs: [Administer multiple servers using Central Management Servers](https://docs.microsoft.com/en-us/sql/relational-databases/administer-multiple-servers-using-central-management-servers)
 

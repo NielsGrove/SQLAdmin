@@ -25,7 +25,7 @@ EXECUTE dbo.sp_sysmanagement_verify_shared_server_type
   @server_type = 0;  -- int
 
 -- Add new server group to CMS
-DECLARE @_server_group_id int;
+DECLARE @_server_group_id AS int;
 EXECUTE dbo.sp_sysmanagement_add_shared_server_group
   @name = N'0 : Production',  -- sysname
   @description = N'',  -- nvarchar(2048)
@@ -34,8 +34,22 @@ EXECUTE dbo.sp_sysmanagement_add_shared_server_group
   @server_group_id = @_server_group_id OUTPUT;  -- int, first = 7
 SELECT @_server_group_id AS [new_server_group_id];
 
+-- A more complete way to add server group to CMS.
+DECLARE @parent_server_group AS int;
+SELECT @parent_server_group = server_group_id
+FROM msdb.dbo.sysmanagement_shared_server_groups
+WHERE [name]='DatabaseEngineServerGroup';
+DECLARE @new_server_group_id AS int;
+EXECUTE msdb.dbo.sp_sysmanagement_add_shared_server_group
+  @name = N'Development'
+  ,@description = N'Development SQL Server database instances.'
+  ,@parent_id = @parent_server_group
+  ,@server_type = 0
+  ,@server_group_id = @new_server_group_id OUTPUT;
+SELECT @new_server_group_id AS [new_server_group];
+
 -- Add new server registration to CMS
-DECLARE @_server_id int;
+DECLARE @_server_id AS int;
 EXECUTE dbo.sp_sysmanagement_add_shared_registered_server
   @name = N'SQLDB0042 - Account',   -- sysname
   @server_group_id = 8,  -- int

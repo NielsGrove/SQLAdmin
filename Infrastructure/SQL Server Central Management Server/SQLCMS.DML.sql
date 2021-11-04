@@ -63,6 +63,14 @@ SELECT @_server_id AS [new_server_id];
 EXECUTE dbo.sp_sysmanagement_delete_shared_server_group
   @server_group_id = 7;  -- int
 
+-- A more complete way to delete server group from CMS
+DECLARE @del_server_grp AS int;
+SELECT @del_server_grp = server_group_id
+FROM dbo.sysmanagement_shared_server_groups
+WHERE [name] = N'Development';
+EXECUTE dbo.sp_sysmanagement_delete_shared_server_group
+  @server_group_id = @del_server_grp;
+
 -- Delete a registered server from CMS.
 EXECUTE dbo.sp_sysmanagement_delete_shared_registered_server
   @server_id = 3;  -- int

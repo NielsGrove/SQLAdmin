@@ -1,6 +1,6 @@
 # SQM Server Central Management Server
 
-The script file `[SQLCMS.DML.sql](./SQLCMS.DML.sql)` has some examples on how to interact with SQLCMS with T-SQL.
+The script file `SQLCMS.DML.sql` has some examples on how to interact with SQLCMS with T-SQL.
 
 ## Reference
 

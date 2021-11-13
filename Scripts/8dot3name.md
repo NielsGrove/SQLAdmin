@@ -1,6 +1,6 @@
 # 8dot3name.ps1
 
-Script file ((`8dot3name.ps1`)[./8dot3name.ps1]) with implementation(s) on getting af short (8.3) name on a given Directory or File.
+Script file ([`8dot3name.ps1`](./8dot3name.ps1)) with implementation(s) on getting af short (8.3) name on a given Directory or File.
 
 ## Issues
 

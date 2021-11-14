@@ -4,7 +4,7 @@ Replace *SQLIO* for SQL Server storage analysis.
 
 ## Execution
 
-- [ ] Execute *DiskSpd* in command-line from PowerShell with different parameter values to simulate different SQL Server work patterns.
+- [ ] Execute *DiskSpd* in command-line from PowerShell with different parameter values to simulate different SQL Server work patterns. Various SQL Server storage patterns are described with *SQLIO*.
 - [ ] Generate set of *DiskSpd* output that can be analyzed with Excel.
 
 ## Analysis

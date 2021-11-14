@@ -14,6 +14,7 @@ Replace *SQLIO* for SQL Server storage analysis.
 ## Other
 
 - [ ] Alter old blog post on *SQLIO* to refer to this work.
+- [ ] Add reference to this work to old blog post on *IOmeter*.
 
 ## Links
 

@@ -4,10 +4,6 @@
 
   Do not use COM components like Scripting.FileSystemObject.
   A cleaner solution using Windows API.
-
-.LINK
-  Idera Community: Converting File Paths to 8.3 (Part 2)
-  (https://community.idera.com/database-tools/powershell/powertips/b/tips/posts/converting-file-paths-to-8-3-part-2)
 #>
 
 #Requires -Version 5
@@ -30,9 +26,9 @@ Process {
   $Signature = '[DllImport("kernel32.dll", SetLastError=true)]
   public static extern int GetShortPathName(String pathName, StringBuilder shortName, int cbShortName);'
 
-  $Type = Add-Type -MemberDefinition $Signature -Namespace Tools -Name Path -UsingNamespace System.Text
+  Add-Type -MemberDefinition $Signature -Namespace Tools -Name Path -UsingNamespace System.Text -Verbose:$false
   
-  [uint]$NameLength = 300
+  [Int32]$NameLength = $Directory.ToString().Length
   $StringBuilder = [System.Text.StringBuilder]::new($NameLength)
   [int]$Return = [Tools.Path]::GetShortPathName($Directory.FullName, $StringBuilder, $NameLength)
 

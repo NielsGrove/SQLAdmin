@@ -10,7 +10,7 @@
 
 From the beginning af PowerShell we had the possibility to create custom objects, and after the object creation it was possible to add attributes and methods to the object. With PowerShell 5 we also have the possibility to create custom classes. This is a personal study on the subject so do not consider the text or the examples complete of perfect - or even correct.
 
-A custom class is a class defined in PowerShell with the class structure as described in the standard documentation [about_Classes](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes). The custom class can be rather simple or extremely complex. In the last case you should consider to implement your functionality in C#. In the most extreme case where you want to control every physical detail or have high requirements on performance you could consider to code the entire solution in C++.
+A custom class is a class defined in PowerShell with the class structure as described in the standard documentation [about_Classes](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes). The custom class can be rather simple or extremely complex. In the last case you should consider to implement your functionality in C\#. In the most extreme case where you want to control every possible physical detail or have high requirements on performance you could consider to develop the entire solution in C++.
 
 The documentation is not a tutorial - as this text is neither - and you should prepare yourself to spend some time on reading materials and experimenting with code.
 
@@ -20,7 +20,7 @@ A object is a instance of a class. There can be many objects of the same class, 
 
 ## Define a PowerShell class
 
-A PowerShell class is defined in a class structure in a script or module file.
+A PowerShell custom class is defined in a class structure in a script or module file.
 
 The general structure of a simple class is like this
 
@@ -50,7 +50,9 @@ Example on a class with full definition in [`FullClass.ps1`](https://github.com/
 
 A simple example on association is in the script file `Association.ps1`. A very dynamic object model where each wheel on a vehicle can have individual diameter...
 
-See more in the documentation (Inheritance in PowerShell classes)[https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.1&source=docs#inheritance-in-powershell-classes] where a more formal inheritance is used in the example.
+See more in the documentation [Inheritance in PowerShell classes](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.1&source=docs#inheritance-in-powershell-classes) where a more formal inheritance is used in the example.
+
+Some consider inheritance as complex types.
 
 Inheritance from a .NET class is also possible with a syntax similar to plain PowerShell class inheritance.
 
@@ -90,11 +92,11 @@ The only output from a method is from the return statement. `Write-Output` then 
 
 ### Constructor
 
-The class constructor can be the default constructor or a parametrized constructor or both. In any case the constructor is named like the class and has a structure like a method.
+The class constructor can be the default constructor or a parametrized constructor or both. In any case the constructor is named like the class and has a structure like a method. The Constructor can be overloaded with parameters. If you want both a default constructor without parameters and a constructor with parameter they can both be defined in the class definition.
 
 ### Deconstructor
 
-De deconstructor is always named `Dispose()` and never takes parameters.
+The deconstructor in a class is always named `Dispose()` and never takes parameters. A deconstructor can be used to close resources like database connections when a given object of the defined class is released from memory. Some litterature call this element a destructor, but that I think is not correct as the element reverse the construction of the given object.
 
 Inheritance - complex types
 
@@ -108,7 +110,11 @@ One example on this construction is in the class definition file `Example.class.
 
 ## Class interface
 
+(TBD)
+
 ## Create a object of a PowerShell class
+
+This is a very short collection of very personal thought on a creating a custom PowerShell object.
 
 A object cal be created with the PowerShell CmdLet `New-Object` or by calling the implicit static method `New()`.
 
@@ -127,6 +133,14 @@ Also you could cast a hash table on the default constructor. (Example...)
 You could create a `New-\<class\>` CmdLet wrapper by a advanced function to create a new instance of a custom class in a more PowerShell piping-friendly way. If the function return a custom object of the custom class the the CmdLet would behave like any other PowerShell `New-` CmdLet.
 
 Also such a function in a PowerShell module will make it possible the create a object from a stript using the module.
+
+### Piping
+
+The only output from a method is from the return statement. `Write-Output` then gives nothing, but other CmdLets that does not give a direct output like `Write-Host`, `Write-Debug`, `Write-Warning` or `Write-Error` can give output to the console. The method signature can be regarded as a contract on the output. Only the output from the return statement will go into the execution pipeline.
+
+StackOverflow: [Why does Write-Output not work inside a PowerShell class method](https://stackoverflow.com/questions/52757670/why-does-write-output-not-work-inside-a-powershell-class-method).
+
+Piping to a custom class object...
 
 ## Use objects of PowerShell classes
 

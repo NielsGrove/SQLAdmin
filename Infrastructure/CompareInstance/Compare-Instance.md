@@ -1,6 +1,6 @@
 # Compare-Instance
 
-Behave like [Compare-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/compare-object).
+Behave like [`Compare-Object`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/compare-object).
 
 ## Input
 
@@ -38,11 +38,12 @@ Backwards compability. Very low priority!
 - Server Roles; name, members, rights
 - Errorlog; audit level, generations, path
 - Audits; name, specification
-- tempdb; filesizes, growth, number of data files, names (logical and physical), paths
+- master (system database); resource database
+- tempdb (system database)
 - Linked server(s)
 - Custom error messages
 - Policies
-- msdb; filesizes, growth, paths
+- msdb (system database)
 - Database; Compress Backup, Backup Checksum, paths
 - Advanced Properties; Cost Threshold for Parallelism, MaxDOP
 - SQL Agent; config, jobs, steps, schedules, proxies, ids
@@ -50,13 +51,30 @@ Backwards compability. Very low priority!
 - FCI; nodes
 - Database Replication; Publisher, Distributor
 
+System database data:
+
+- Data file(s); logical name, physical name, path, size, growth rate, number of files
+- log file(s); 
+
+### SQL Agent
+
+- Jobs, steps, schedules; definition, owner, properties
+
 ### Analysis Services (SSAS)
+
+(later)
 
 ### Integration Services (SSIS)
 
+(Next major version)
+
 ### Reporting Services (SSRS)
 
+(later)
+
 ### Secondary Services
+
+(maybe)
 
 - Master Data Service (MDS)
 - Data Quality Service (DQS)
@@ -67,7 +85,7 @@ Backwards compability. Very low priority!
 
 1. Get data from each node
 1. Create custom object with all data
-1. Export data (`Export-Clixml`) ???
+1. ??? Export data (`Export-Clixml`) ???
 
 ### Compare
 

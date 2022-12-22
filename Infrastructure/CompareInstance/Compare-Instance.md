@@ -54,7 +54,7 @@ Backwards compability. Very low priority!
 System database data:
 
 - Data file(s); logical name, physical name, path, size, growth rate, number of files
-- log file(s); 
+- log file(s); (as data files)
 
 ### SQL Agent
 

@@ -1,6 +1,6 @@
 # Ola Hallengren Maintenance Solution (OHMS)
 
-Installation and configuring OHM.
+Installation and configuring OHMS.
 
 # Installing OHMS
 

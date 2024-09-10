@@ -8,7 +8,6 @@ Preparation
 Download
     From Microsoft SQL Server samples.
     https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
-
 */
 
 -- Get what files are in the backup set
@@ -31,9 +30,11 @@ GO
 ALTER DATABASE [AdventureWorks] SET COMPATIBILITY_LEVEL = 150;
 ALTER AUTHORIZATION ON DATABASE::[AdventureWorks] TO [sa];
 GO
+
 ALTER DATABASE [AdventureWorks] MODIFY FILE (NAME=N'AdventureWorks2019', NEWNAME=N'AdventureWorks');
 ALTER DATABASE [AdventureWorks] MODIFY FILE (NAME=N'AdventureWorks2019_log', NEWNAME=N'AdventureWorks_log');
 GO
+
 EXECUTE [AdventureWorks].sys.sp_updateextendedproperty
   @name=N'MS_Description',
   @value=N'AdventureWorks Sample OLTP Database' ;

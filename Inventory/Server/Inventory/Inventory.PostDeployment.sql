@@ -1,16 +1,7 @@
 ﻿/*
-Filename
-sqladmin.database.ddl.sql
-
 Description
 Create basic SQLAdmin database.
-Standard database for SQL Server administration. Defined by the DBA team.
-The database is not to be mirrored or log-shipped.
-Must be created on all SQL Server database instances.
-
-History
-2015-03-06 (Niels Grove-Rasmussen) Database definition moved from SQLAdmin Repository DDL.
-2017-07-01 (Niels Grove-Rasmussen) Move from Codeplex to GitHub.
+Standard local database for SQL Server administration. Defined by the DBA team.
 */
 
 

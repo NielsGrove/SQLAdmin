@@ -22,7 +22,7 @@ WHERE [databases].[name] = N'AdventureWorks';
 GO
 /*  When [persistent_version_store_size_kb] is 0 (zero) you can move on.   */
 
-/* This part creating the actual filegroup is not in the Mocrosoft documentation. */
+/* This part creating the actual filegroup is not in the Microsoft documentation. */
 ALTER DATABASE [AdventureWorks] ADD FILEGROUP [VERSIONSTORE];
 GO
 ALTER DATABASE [AdventureWorks] ADD FILE 

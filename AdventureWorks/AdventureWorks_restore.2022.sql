@@ -11,18 +11,18 @@ Download
 */
 
 -- Get what files are in the backup set
-RESTORE FILELISTONLY FROM  DISK = N'M:\MSSQL2022\Backup\AdventureWorks2022.bak';
+RESTORE FILELISTONLY FROM  DISK = N'L:\SSDB2022\Backup\AdventureWorks2022.bak';
 
 -- Get header info from backup set
-RESTORE HEADERONLY FROM  DISK = N'M:\MSSQL2022\Backup\AdventureWorks2022.bak';
+RESTORE HEADERONLY FROM  DISK = N'L:\SSDB2022\Backup\AdventureWorks2022.bak';
 GO
 
 -- Restore database
 -- NB! Update paths before restore.
 USE [master];
-RESTORE DATABASE [AdventureWorks] FROM  DISK = N'M:\MSSQL2022\Backup\AdventureWorks2022.bak' WITH
-  MOVE N'AdventureWorks2022' TO N'M:\MSSQL2022\Data\AdventureWorks.mdf',
-  MOVE N'AdventureWorks2022_log' TO N'M:\MSSQL2022\Translog\AdventureWorks_log.ldf',
+RESTORE DATABASE [AdventureWorks] FROM  DISK = N'L:\SSDB2022\Backup\AdventureWorks2022.bak' WITH
+  MOVE N'AdventureWorks2022' TO N'L:\SSDB2022\Data\AdventureWorks.mdf',
+  MOVE N'AdventureWorks2022_log' TO N'L:\SSDB2022\TransLog\AdventureWorks_log.ldf',
   NORECOVERY, STATS = 5;
 GO
 RESTORE DATABASE [AdventureWorks] WITH RECOVERY;
@@ -31,6 +31,11 @@ GO
 ALTER DATABASE [AdventureWorks] SET COMPATIBILITY_LEVEL = 160;
 ALTER AUTHORIZATION ON DATABASE::[AdventureWorks] TO [sa];
 GO
+
+ALTER DATABASE [AdventureWorks] MODIFY FILE (NAME=N'AdventureWorks2022', NEWNAME=N'AdventureWorks');
+ALTER DATABASE [AdventureWorks] MODIFY FILE (NAME=N'AdventureWorks2022_log', NEWNAME=N'AdventureWorks_log');
+GO
+
 EXECUTE [AdventureWorks].sys.sp_updateextendedproperty
   @name=N'MS_Description',
   @value=N'AdventureWorks Sample OLTP Database' ;

@@ -2,10 +2,12 @@
 
 Implememtation of various **SQLAdmin** clients.
 
-## Analytics GUI
+## Operational GUI
 
 To make the **SQLAdmin** client fast and capable enough is should be considered to build it on Microsoft DirectX. 
-This should be done using C++ to gail access to the full functionality of DirectX.
+This should be done using C++ to gain access to the full functionality of DirectX.
+
+_WPF_ could also be considered, as it can give a fast enough GUI. Also it can be deployed with _ClickOnce_ which makes deployment effective.
 
 ## Reporting
 

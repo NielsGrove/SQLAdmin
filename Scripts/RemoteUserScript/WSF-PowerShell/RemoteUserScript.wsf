@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "utf–8"?>
+
+
+<package id = "pkgRemoteUserScript">
+    <job id = "jobRemoteUserScript">
+        <resource id="RemoteDirectory">
+        <![CDATA[
+\\filesrv42.sqladmin.lan\
+       ]]>
+        </resource>
+        <resource id="LocalDirectory">
+        <![CDATA[
+C:\Temp\
+        ]]>
+        </resource>
+        <runtime>
+            <description>
+Language   : Windows Script File (WSF)
+Description: Basic JScript scripting in a Windows Script File (wsf)
+Arguments  : none
+Usage      : RemoteUserScript.wsf
+Example    : cscript.exe RemoteUserScript.wsf
+            </description>
+            <example>
+BasicExample.wsf
+            </example>
+        </runtime>
+		
+        <script language = "jscript">
+        <![CDATA[
+WScript.Echo( ":: Hello World from JScript" );
+        ]]>
+        </script>
+    </job>
+</package>

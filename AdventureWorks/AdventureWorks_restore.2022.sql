@@ -11,18 +11,18 @@ Download
 */
 
 -- Get what files are in the backup set
-RESTORE FILELISTONLY FROM  DISK = N'L:\SSDB2022\Backup\AdventureWorks2022.bak';
+RESTORE FILELISTONLY FROM  DISK = N'D:\Program Files\Microsoft SQL Server\MSSQL16.SSDB2022\MSSQL\Backup\AdventureWorks2022.bak';
 
 -- Get header info from backup set
-RESTORE HEADERONLY FROM  DISK = N'L:\SSDB2022\Backup\AdventureWorks2022.bak';
+RESTORE HEADERONLY FROM  DISK = N'D:\Program Files\Microsoft SQL Server\MSSQL16.SSDB2022\MSSQL\Backup\AdventureWorks2022.bak';
 GO
 
 -- Restore database
 -- NB! Update paths before restore.
 USE [master];
-RESTORE DATABASE [AdventureWorks] FROM  DISK = N'L:\SSDB2022\Backup\AdventureWorks2022.bak' WITH
-  MOVE N'AdventureWorks2022' TO N'L:\SSDB2022\Data\AdventureWorks.mdf',
-  MOVE N'AdventureWorks2022_log' TO N'L:\SSDB2022\TransLog\AdventureWorks_log.ldf',
+RESTORE DATABASE [AdventureWorks] FROM  DISK = N'D:\Program Files\Microsoft SQL Server\MSSQL16.SSDB2022\MSSQL\Backup\AdventureWorks2022.bak' WITH
+  MOVE N'AdventureWorks2022' TO N'D:\Program Files\Microsoft SQL Server\MSSQL16.SSDB2022\MSSQL\DATA\AdventureWorks.mdf',
+  MOVE N'AdventureWorks2022_log' TO N'D:\Program Files\Microsoft SQL Server\MSSQL16.SSDB2022\MSSQL\DATA\AdventureWorks_log.ldf',
   NORECOVERY, STATS = 5;
 GO
 RESTORE DATABASE [AdventureWorks] WITH RECOVERY;

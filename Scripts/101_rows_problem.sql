@@ -1,6 +1,12 @@
 /*
 Description
 	Demonstrate 101 rows problem on SQL Server.
+
+Recommendation
+	In SSMS: Change "Value for Select Top <n> Rows command" to 100 or less.
+	Tools > Options
+	SQL Server Object Explorer > Commands
+	Table and View Options > Value for Select Top <n> Rows command
 */
 USE [AdventureWorks];
 GO

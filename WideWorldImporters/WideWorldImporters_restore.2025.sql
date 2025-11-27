@@ -9,6 +9,8 @@ Download
     From Microsoft SQL Server samples on Github.
     https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Full.bak
 */
+USE [tempdb];
+GO
 
 -- Get what files are in the backup set
 RESTORE FILELISTONLY FROM  DISK = N'S:\MSSQL17.SSDB2025\MSSQL\Backup\WideWorldImporters-Full.bak';

@@ -26,35 +26,35 @@ GO
 ALTER DATABASE [WideWorldImporters] ADD FILEGROUP [VERSIONSTORE];
 GO
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_0', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_0.mdf',
+    ( NAME = N'WWI_vs_0', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_0.mdf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_1', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_1.ndf',
+    ( NAME = N'WWI_vs_1', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_1.ndf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_2', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_2.ndf',
+    ( NAME = N'WWI_vs_2', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_2.ndf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_3', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_3.ndf',
+    ( NAME = N'WWI_vs_3', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_3.ndf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_4', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_4.ndf',
+    ( NAME = N'WWI_vs_4', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_4.ndf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_5', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_5.ndf',
+    ( NAME = N'WWI_vs_5', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_5.ndf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_6', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_6.ndf',
+    ( NAME = N'WWI_vs_6', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_6.ndf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 ALTER DATABASE [WideWorldImporters] ADD FILE 
-    ( NAME = N'WideWorldImporters_vs_7', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_7.ndf',
+    ( NAME = N'WWI_vs_7', FILENAME = N'S:\MSSQL17.SSDB2025\MSSQL\Data\WideWorldImporters_vs_7.ndf',
         SIZE = 8MB , FILEGROWTH = 64MB ) 
     TO FILEGROUP [VERSIONSTORE];
 GO

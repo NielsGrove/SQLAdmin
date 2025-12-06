@@ -12,7 +12,7 @@ Use the script [WideWorldImporters_restore_2025.sql](./WideWorldImporters_restor
 
 ## 2) Rebuild indexes
 
-Rebuild all indexes in the WideWorldImporters data with the script [./]().
+Rebuild all indexes in the WideWorldImporters data with the [Ola Hallengren Maintenance Solution](https://ola.hallengren.com/) (OHMS). I have some time ago written about [Installing OHMS](https://sqladm.blogspot.com/2019/02/installing-ola-hallengren-maintenance.html) in the SQLAdmin bog.
 
 ## 3) Move PVS to Filegroup
 

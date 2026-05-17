@@ -5,6 +5,12 @@
 #Requires -Version 7
 Set-StrictMode -Version Latest
 
+#region Global
+[string]$Script:DataSource = '(local)\SSDB2022'
+[string]$Script:InitialCatalog = 'custom_bool'
+#endregion Global
+
+
 function Test-CustomBool {
 <#
 .DESCRIPTION
@@ -15,13 +21,13 @@ process {
     $SqlCnn = New-Object Microsoft.Data.SqlClient.SqlConnection
     $SqlCnn.ConnectionString = 'Data Source=np:(local)\MSSQL2019;Initial Catalog=custom_bool;Integrated Security = SSPI;TrustServerCertificate=true'
 
-    Test-SimpleFixed -SqlCnn
-    Test-UnicodeFixed
-    Test-Variable
-    Test-UnicodeVariable
-    Test-Relation
+    Test-SimpleFixed -SqlConnection $SqlCnn
+    #Test-UnicodeFixed
+    #Test-Variable
+    #Test-UnicodeVariable
+    #Test-Relation
 
-    'Close connection to database...' | Write-Verbose
+    $SqlCnn= $null
 }
 }  # Test-CustomBool
 
@@ -29,20 +35,20 @@ process {
 function Test-SimpleFixed {
 <#
 .DESCRIPTION
-    Test simple fixed Custom Boolean.
-.PARAMETER SqlCnn
+    Test simple fixed Custom Boolean : Char(5).
+.PARAMETER SqlConnection
     SqlConnection object on the database.
 #>
 [CmdletBinding()]
 [OutputType([void])]
 Param(
     [Parameter(Mandatory=$true, ValueFromPipeLine=$true, HelpMessage='')]
-    $SqlCnn
+    [Microsoft.Data.SqlClient.SqlConnection]$SqlConnection
 )
 
     $mywatch = [System.Diagnostics.Stopwatch]::StartNew()
     $SqlCmd = New-Object Microsoft.Data.SqlClient.SqlCommand
-    $SqlCmd.Connection = $SqlCnn
+    $SqlCmd.Connection = $SqlConnection
     $SqlCmd.CommandText = ''
     $SqlCnn.Open()
 
@@ -50,14 +56,14 @@ Param(
     $SqlCnn.Close
     $SqlCmd = $null
     $mywatch.Stop()
-    [string]$Message = "<function name> finished with success. Duration = $($mywatch.Elapsed.ToString()). [hh:mm:ss.ddd]"
+    [string]$Message = "Test-SimpleFixed finished with success. Duration = $($mywatch.Elapsed.ToString()). [hh:mm:ss.ddd]"
     "[{0:s}Z  END    ]  $Message" -f [System.DateTime]::UtcNow | Write-Output
 }
 
 function Test-UnicodeFixed {
 <#
 .DESCRIPTION
-    Test Unicode fixed Custom Boolean.
+    Test Unicode fixed Custom Unicode Boolean : NChar(5).
 #>
 }
 

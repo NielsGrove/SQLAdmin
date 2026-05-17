@@ -2,26 +2,30 @@
 Description
     Create database and objects to work with Custom Boolean columns.
 */
-
-CREATE DATABASE [custom_bool]
-ON  PRIMARY ( NAME = N'custom_bool',
-    FILENAME = N'L:\SSDB2019\Data\custom_bool.mdf',
-    SIZE = 8MB , FILEGROWTH = 64MB )
-LOG ON ( NAME = N'custom_bool_log',
-    FILENAME = N'L:\SSDB2019\TransLog\custom_bool_log.ldf', 
-    SIZE = 8MB , FILEGROWTH = 64MB );
+USE [tempdb];
 GO
 
-USE [custom_bool];
+EXECUTE master.dbo.xp_create_subdir 'S:\MSSQL16.SSDB2022\Data\';
+GO
+CREATE DATABASE [custom_bool]
+ON  PRIMARY ( NAME = N'custom_bool_data0', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data0.mdf', SIZE = 48MB , FILEGROWTH = 64MB ),
+	(NAME = N'custom_bool_data1', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data1.ndf', SIZE = 48MB , FILEGROWTH = 64MB ),
+	(NAME = N'custom_bool_data2', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data2.ndf', SIZE = 48MB , FILEGROWTH = 64MB ),
+	(NAME = N'custom_bool_data3', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data3.ndf', SIZE = 48MB , FILEGROWTH = 64MB ),
+	(NAME = N'custom_bool_data4', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data4.ndf', SIZE = 48MB , FILEGROWTH = 64MB ),
+	(NAME = N'custom_bool_data5', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data5.ndf', SIZE = 48MB , FILEGROWTH = 64MB ),
+	(NAME = N'custom_bool_data6', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data6.ndf', SIZE = 48MB , FILEGROWTH = 64MB ),
+	(NAME = N'custom_bool_data7', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_data7.ndf', SIZE = 48MB , FILEGROWTH = 64MB )
+LOG ON ( NAME = N'custom_bool_log', FILENAME = N'S:\MSSQL16.SSDB2022\Data\custom_bool_log.ldf', SIZE = 768MB , FILEGROWTH = 64MB );
+GO
+ALTER DATABASE [custom_bool] SET RECOVERY SIMPLE WITH NO_WAIT;
 GO
 ALTER AUTHORIZATION ON DATABASE::[custom_bool] TO [sa];
 GO
 
 
 /**  Table for simple fixed Custom Boolean  **/
-USE [custom_bool];
-GO
-CREATE TABLE [dbo].[fixed_test]
+CREATE TABLE [custom_bool].[dbo].[fixed_test]
 (
 	[col_00] char(5) NOT NULL,
 	[col_01] char(5) NOT NULL,
@@ -41,12 +45,18 @@ CREATE TABLE [dbo].[fixed_test]
 	[col_15] char(5) NOT NULL
 );
 GO
+USE [custom_bool];
+GO
+ALTER TABLE [custom_bool].[dbo].[fixed_test]  WITH CHECK ADD  CONSTRAINT [CK_col_00] CHECK  
+	(([col_00]='yes' OR [col_00]='y' OR [col_00]='no' OR [col_00]='n'));
+ALTER TABLE [dbo].[fixed_test] CHECK CONSTRAINT [CK_col_00];
+GO
+USE [tempdb];
+GO
 
 
 /**  Table for Unicode fixed Custom Boolean  **/
-USE [custom_bool];
-GO
-CREATE TABLE [dbo].[nfixed_test]
+CREATE TABLE [custom_bool].[dbo].[nfixed_test]
 (
 	[col_00] nchar(5) NOT NULL,
 	[col_01] nchar(5) NOT NULL,
@@ -69,9 +79,7 @@ GO
 
 
 /**  Table for variable Custom Boolean  **/
-USE [custom_bool];
-GO
-CREATE TABLE [dbo].[var_test]
+CREATE TABLE [custom_bool].[dbo].[var_test]
 (
 	[col_00] varchar(5) NOT NULL,
 	[col_01] varchar(5) NOT NULL,
@@ -94,9 +102,7 @@ GO
 
 
 /**  Table for Unicode variable Custom Boolean  **/
-USE [custom_bool];
-GO
-CREATE TABLE [dbo].[nvar_test]
+CREATE TABLE [custom_bool].[dbo].[nvar_test]
 (
 	[col_00] nvarchar(5) NOT NULL,
 	[col_01] nvarchar(5) NOT NULL,
@@ -119,22 +125,20 @@ GO
 
 
 /**  Table for related type Custom Boolean  **/
-USE [custom_bool];
-GO
-CREATE TABLE [dbo].[types]
+CREATE TABLE [custom_bool].[dbo].[types]
 (
 	[type_id] int IDENTITY(1, 1) NOT NULL,
 	[type_value] char(5) NOT NULL,
     CONSTRAINT [pk_types] PRIMARY KEY ([type_id])
 );
 GO
-INSERT INTO [dbo].[types] ([type_value])
+INSERT INTO [custom_bool].[dbo].[types] ([type_value])
 VALUES
     ('true'),
     ('false');
 GO
 --SELECT * FROM [dbo].[types];
-CREATE TABLE [dbo].[type_test]
+CREATE TABLE [custom_bool].[dbo].[type_test]
 (
 	[col_00] int NOT NULL,
 	[col_01] int NOT NULL,
@@ -154,27 +158,3 @@ CREATE TABLE [dbo].[type_test]
 	[col_15] int NOT NULL
 );
 GO
-
-
-/**  Cleanup  **/
-/*
-USE [master];
-GO
-EXECUTE [msdb].[dbo].[sp_delete_database_backuphistory] @database_name = N'custom_bool';
-GO
-ALTER DATABASE [custom_bool] SET  SINGLE_USER WITH NO_WAIT;
-GO
-DROP DATABASE [custom_bool];
-GO
-
-DROP TABLE [custom_bool].[dbo].[fixed_test];
-
-DROP TABLE [custom_bool].[dbo].[nfixed_test];
-
-DROP TABLE [custom_bool].[dbo].[var_test];
-
-DROP TABLE [custom_bool].[dbo].[nvar_test];
-
-DROP TABLE [custom_bool].[dbo].[types];
-DROP TABLE [custom_bool].[dbo].[type_test];
---*/

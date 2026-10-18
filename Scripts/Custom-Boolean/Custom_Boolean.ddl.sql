@@ -23,6 +23,11 @@ GO
 ALTER AUTHORIZATION ON DATABASE::[custom_bool] TO [sa];
 GO
 
+EXECUTE [custom_bool].[sys].[sp_addextendedproperty]
+	@name=N'MS_Description', 
+	@value=N'Custom Boolean sandbox';
+GO
+
 
 /**  Table for simple fixed Custom Boolean  **/
 CREATE TABLE [custom_bool].[dbo].[fixed_test]
@@ -75,6 +80,14 @@ CREATE TABLE [custom_bool].[dbo].[nfixed_test]
 	[col_14] nchar(5) NOT NULL,
 	[col_15] nchar(5) NOT NULL
 );
+GO
+USE [custom_bool];
+GO
+ALTER TABLE [custom_bool].[dbo].[nfixed_test]  WITH CHECK ADD  CONSTRAINT [CK_col_00] CHECK  
+	(([col_00]='yes' OR [col_00]='y' OR [col_00]='no' OR [col_00]='n'));
+ALTER TABLE [dbo].[fixed_test] CHECK CONSTRAINT [CK_col_00];
+GO
+USE [tempdb];
 GO
 
 

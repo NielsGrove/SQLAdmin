@@ -23,10 +23,11 @@ One table setup for each test run. Each table with 16 similar columns to fit wit
 
 For this test I will use the two boolean values `true` and `false` on fixed columns.
 
-- `INSERT` 10 000 rows. The same number on alle tests.
-- `UPDATE` all rows.
+1. Truncate table
+1. `INSERT` 10 000 rows. The same number on alle tests.
+1. `UPDATE` all rows.
+
 - Use general timing standard in T-SQL. This must be super lightweight not to affect the results.
-- Each table will be tested without and with Check Constraints.
 
 ### Table `fixed_test`
 
@@ -44,3 +45,5 @@ Run | Time | Time
 7 | 00:00:02 | 00:02:21
 8 | 00:00:02 | 00:02:26
 9 | 00:00:02 | 00:02:24
+
+These numbers are one with Check Constraint on column `col_00`. Rerun with same Check Constraint on all 16 columns.

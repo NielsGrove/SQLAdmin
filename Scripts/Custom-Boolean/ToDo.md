@@ -1,5 +1,6 @@
 # T-SQL Custom Boolean Column - ToDo
 
+- [ ] Test each table without and with Check Constraints.
 - [ ] Use default folders for database files. Just to be nice when the current storage configuration does not match a future configuration.
 - [ ] Use custom schema. This is a general recommendation not to use the schemas `dbo` or `sys`.
 - [ ] Use custom file group. This is a general recommendation not to use the file group `PRIMARY`.

@@ -10,9 +10,9 @@ The simple database `[custom_00]` with no special configurations. But there are 
 
 One table setup for each test run. Each table with 16 similar columns to fit with more than one Byte when using `bit` type:
 
+1. `[fixed_0]`: Ordinary (simple) `char` columns. The width is set to five characters that match the string value `false`.
 1. `[null_0]`: Nullable columns. Just testing the time to `INSERT`, but not `UPDATE`. This might be somewhat out of context and will wait.
-1. `[fixed_0]`: Ordinary `char` columns. The width is set to five characters that match the string value `false`.
-1. `[nfixed_0]`: `nchar` columns.
+1. `[nfixed_0]`: Unicode `nchar` columns.
 1. `[var_0]`: `varchar` columns. Will be tested from narrow (`n`) to wide (`false`) values.
 1. `[nvar_0]`: `nvarchar` columns. Will be tested from narrow (`æ`) to wide (`æÆØÅå`) values
 1. `[type_0]`: Type table relation where the type table holds the correct (two) values.

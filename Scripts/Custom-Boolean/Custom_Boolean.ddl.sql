@@ -29,7 +29,7 @@ EXECUTE [custom_bool].[sys].[sp_addextendedproperty]
 GO
 
 
-/**  2) Table for simple fixed but nullable Custom Boolean  **/
+/**  2) Table for simple fixed Custom Boolean  **/
 USE [custom_bool];
 GO
 CREATE TABLE [custom_bool].[dbo].[fixed_test]
@@ -56,10 +56,18 @@ ALTER TABLE [custom_bool].[dbo].[fixed_test]  WITH CHECK ADD  CONSTRAINT [CK_col
 	(([col_00]='yes' OR [col_00]='y' OR [col_00]='no' OR [col_00]='n'));
 ALTER TABLE [dbo].[fixed_test] CHECK CONSTRAINT [CK_col_00];
 GO
-EXECUTE [custom_bool].sys.sp_addextendedproperty
+EXECUTE [custom_bool].[sys].[sp_addextendedproperty]
 	@name=N'MS_Description',
 	@value=N'Custom Boolean table with simple columns.',
-	@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'fixed_test';
+	@level0type=N'SCHEMA', @level0name=N'dbo',
+	@level1type=N'TABLE', @level1name=N'fixed_test';
+GO
+EXECUTE [custom_bool].[sys].[sp_addextendedproperty]
+	@name=N'MS_Description',
+	@value=N'Column 00 simple Custom Boolean.',
+	@level0type=N'SCHEMA', @level0name=N'dbo',
+	@level1type=N'TABLE', @level1name=N'fixed_test',
+	@level2type=N'COLUMN', @level2name=N'col_00';
 GO
 USE [tempdb];
 GO

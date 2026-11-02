@@ -9,6 +9,7 @@ ALTER TABLE [dbo].[fixed_test] DROP CONSTRAINT [CK_col_00];
 TRUNCATE TABLE [custom_bool].[dbo].[fixed_test];
 DROP TABLE [custom_bool].[dbo].[fixed_test];
 
+TRUNCATE TABLE [custom_bool].[dbo].[nfixed_test];
 DROP TABLE [custom_bool].[dbo].[nfixed_test];
 
 DROP TABLE [custom_bool].[dbo].[var_test];

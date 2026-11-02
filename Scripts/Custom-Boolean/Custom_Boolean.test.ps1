@@ -17,7 +17,7 @@ function Test-CustomBool {
     Test Custom Boolean column.
 #>
 [CmdletBinding()]
-[OutputType([void])]
+[OutputType([bool])]
 Param(
     #[Parameter(Mandatory=$true, ValueFromPipeLine=$true, HelpMessage='')]
     #[Microsoft.Data.SqlClient.SqlConnection]$SqlConnection
@@ -50,7 +50,7 @@ function Test-SimpleFixed {
     SqlConnection object on the database.
 #>
 [CmdletBinding()]
-[OutputType([void])]
+[OutputType([bool])]
 Param(
     [Parameter(Mandatory=$true, ValueFromPipeLine=$true, HelpMessage='')]
     [Microsoft.Data.SqlClient.SqlConnection]$SqlConnection
@@ -81,7 +81,7 @@ function Test-UnicodeFixed {
     Test Unicode fixed Custom Unicode Boolean : NChar(5).
 #>
 [CmdletBinding()]
-[OutputType([void])]
+[OutputType([bool])]
 Param(
     #[Parameter(Mandatory=$true, ValueFromPipeLine=$true, HelpMessage='')]
     #[Microsoft.Data.SqlClient.SqlConnection]$SqlConnection
@@ -99,7 +99,7 @@ function Test-Variable {
     Test variable Custom Boolean.
 #>
 [CmdletBinding()]
-[OutputType([void])]
+[OutputType([bool])]
 Param(
     #[Parameter(Mandatory=$true, ValueFromPipeLine=$true, HelpMessage='')]
     #[Microsoft.Data.SqlClient.SqlConnection]$SqlConnection
@@ -117,7 +117,7 @@ function Test-UnicodeVariable {
     Test Unicode variable Custom Boolean.
 #>
 [CmdletBinding()]
-[OutputType([void])]
+[OutputType([bool])]
 Param(
     #[Parameter(Mandatory=$true, ValueFromPipeLine=$true, HelpMessage='')]
     #[Microsoft.Data.SqlClient.SqlConnection]$SqlConnection
@@ -135,7 +135,7 @@ function Test-Relation {
     Test related type Custom Boolean.
 #>
 [CmdletBinding()]
-[OutputType([void])]
+[OutputType([bool])]
 Param(
     #[Parameter(Mandatory=$true, ValueFromPipeLine=$true, HelpMessage='')]
     #[Microsoft.Data.SqlClient.SqlConnection]$SqlConnection
